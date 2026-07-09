@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-blue: #2D56A8;
+  --color-brand-blue-dark: #1F3D7A;
+  --color-brand-cream: #EEEDE9;
+  --color-brand-blue-tint: rgb(45 86 168 / 0.10); /* 8–12% per spec */
+  --color-brand-ink: #2A2A28;
+  --font-display: "Baloo 2", "Noto Sans TC", sans-serif;
+  --font-body: "Noto Sans TC", sans-serif;
+}
+
+@layer components {
+  .badge-pill {
+    @apply inline-flex items-center rounded-full bg-brand-blue px-5 py-2.5
+      font-medium text-brand-cream transition-colors hover:bg-brand-blue-dark;
+  }
+  .timestamp-link {
+    @apply inline-flex cursor-pointer items-center rounded-full bg-brand-blue-tint
+      px-2 py-0.5 font-medium text-brand-blue transition-colors
+      hover:bg-brand-blue hover:text-brand-cream;
+  }
+  .show-notes a {
+    @apply text-brand-blue underline hover:text-brand-blue-dark;
+  }
+  .show-notes p { @apply my-4; }
+}
