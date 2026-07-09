@@ -28,7 +28,7 @@ const jsonLd = JSON.stringify({
     associatedMedia: { '@type': 'MediaObject', contentUrl: ep.audioUrl },
   }),
   partOfSeries: { '@type': 'PodcastSeries', name: SITE.name, url: Astro.site?.href },
-});
+}).replace(/</g, '\\u003c');
 ---
 <Base title={`${ep.title}｜${SITE.name}`} description={description} image={ep.cover} type="article">
   <script type="application/ld+json" set:html={jsonLd} slot="head" />
