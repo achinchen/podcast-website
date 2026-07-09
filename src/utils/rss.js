@@ -2,6 +2,7 @@
 import Parser from 'rss-parser';
 import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
+import { resolve } from 'node:path';
 
 const parser = new Parser({
   customFields: {
@@ -39,7 +40,9 @@ export async function getEpisodes(rssUrl = process.env.PODCAST_RSS_URL) {
   const feed = rssUrl
     ? await parser.parseURL(rssUrl)
     : await parser.parseString(
-        await readFile(new URL('../data/sample-feed.xml', import.meta.url), 'utf8'),
+        // Resolve from project root: import.meta.url points at the bundled
+        // chunk during Astro prerendering, so relative URLs break there.
+        await readFile(resolve(process.cwd(), 'src/data/sample-feed.xml'), 'utf8'),
       );
   return feed.items.map((item) => mapItem(item, feed)).sort((a, b) => b.pubDate - a.pubDate);
 }
