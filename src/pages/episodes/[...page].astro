@@ -1,0 +1,27 @@
+---
+import Base from '../../layouts/Base.astro';
+import EpisodeCard from '../../components/EpisodeCard.astro';
+import { getEpisodes } from '../../utils/rss.js';
+import { SITE } from '../../config.js';
+
+export async function getStaticPaths({ paginate }) {
+  const episodes = await getEpisodes();
+  return paginate(episodes, { pageSize: 10 });
+}
+const { page } = Astro.props;
+---
+<Base title={`全部單集（第 ${page.currentPage} 頁）｜${SITE.name}`}>
+  <h1 class="font-display text-3xl font-bold text-brand-blue">全部單集</h1>
+  <div class="mt-8 grid gap-6">
+    {page.data.map((ep) => <EpisodeCard episode={ep} />)}
+  </div>
+  <nav class="mt-10 flex items-center justify-between" aria-label="分頁">
+    {page.url.prev
+      ? <a href={page.url.prev} class="badge-pill">← 較新單集</a>
+      : <span />}
+    <span class="text-sm">第 {page.currentPage} / {page.lastPage} 頁</span>
+    {page.url.next
+      ? <a href={page.url.next} class="badge-pill">較舊單集 →</a>
+      : <span />}
+  </nav>
+</Base>

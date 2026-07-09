@@ -1,0 +1,11 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../config.js';
+---
+<Base title={`找不到頁面｜${SITE.name}`}>
+  <section class="py-20 text-center">
+    <h1 class="font-display text-4xl font-bold text-brand-blue">404 找不到這一頁</h1>
+    <p class="mt-4">這個連結可能已失效，或單集網址有變動。</p>
+    <a href="/episodes" class="badge-pill mt-8">瀏覽全部單集</a>
+  </section>
+</Base>

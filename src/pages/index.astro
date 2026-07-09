@@ -1,6 +1,27 @@
 ---
 import Base from '../layouts/Base.astro';
+import EpisodeCard from '../components/EpisodeCard.astro';
+import PlatformBadges from '../components/PlatformBadges.astro';
+import { getEpisodes } from '../utils/rss.js';
+import { SITE } from '../config.js';
+const episodes = await getEpisodes();
+const latest = episodes.slice(0, 3);
 ---
-<Base>
-  <h1 class="font-display text-4xl font-bold text-brand-blue">a.chin.logs</h1>
+<Base image={episodes[0]?.cover}>
+  <section class="py-12 text-center">
+    <h1 class="font-display text-5xl font-bold text-brand-blue">{SITE.name}</h1>
+    <p class="mx-auto mt-4 max-w-xl text-lg">{SITE.tagline}</p>
+    <div class="mt-8 flex justify-center"><PlatformBadges /></div>
+  </section>
+  <section class="mt-8">
+    <h2 class="font-display text-2xl font-bold text-brand-blue">最新單集</h2>
+    <div class="mt-6 grid gap-6">
+      {latest.map((ep) => <EpisodeCard episode={ep} />)}
+    </div>
+    <p class="mt-8 text-center">
+      <a href="/episodes" class="font-medium text-brand-blue underline hover:text-brand-blue-dark">
+        看全部單集 →
+      </a>
+    </p>
+  </section>
 </Base>
