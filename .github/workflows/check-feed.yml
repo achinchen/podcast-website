@@ -1,0 +1,46 @@
+name: Check RSS feed
+on:
+  schedule:
+    - cron: '0 */6 * * *' # every 6 hours per spec §4
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Compare latest episode guid with cache
+        id: check
+        env:
+          PODCAST_RSS_URL: ${{ secrets.PODCAST_RSS_URL }}
+        run: node scripts/check-feed.mjs
+      - name: Commit cache and trigger Vercel deploy
+        if: steps.check.outputs.changed == 'true'
+        env:
+          DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .feed-cache.json
+          git commit -m "chore: new episode detected, update feed cache"
+          git push
+          curl -fsS -X POST "$DEPLOY_HOOK"
+      - name: Notify on failure
+        if: failure()
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          if [ -n "$DISCORD_WEBHOOK" ]; then
+            curl -fsS -H 'Content-Type: application/json' \
+              -d '{"content":"⚠️ a.chin.logs feed check failed: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"}' \
+              "$DISCORD_WEBHOOK"
+          else
+            echo "DISCORD_WEBHOOK not set; skipping notification."
+          fi
