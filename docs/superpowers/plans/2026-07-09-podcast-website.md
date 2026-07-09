@@ -1074,12 +1074,14 @@ jobs:
         env:
           DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
         run: |
+          # Hook before cache push: a transient hook failure fails the step
+          # before the guid is persisted, so the next run retries the deploy.
+          curl -fsS -X POST "$DEPLOY_HOOK"
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add .feed-cache.json
           git commit -m "chore: new episode detected, update feed cache"
           git push
-          curl -fsS -X POST "$DEPLOY_HOOK"
       - name: Notify on failure
         if: failure()
         env:
