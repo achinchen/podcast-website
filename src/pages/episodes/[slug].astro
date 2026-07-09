@@ -1,0 +1,64 @@
+---
+import Base from '../../layouts/Base.astro';
+import PlatformBadges from '../../components/PlatformBadges.astro';
+import { getEpisodes } from '../../utils/rss.js';
+import { transformTimestamps } from '../../utils/timestamps.js';
+import { excerpt } from '../../utils/text.js';
+import { SITE } from '../../config.js';
+
+export async function getStaticPaths() {
+  const episodes = await getEpisodes();
+  return episodes.map((ep) => ({ params: { slug: ep.slug }, props: { ep } }));
+}
+
+const { ep } = Astro.props;
+const notesHtml = transformTimestamps(ep.descriptionHtml);
+const description = excerpt(ep.descriptionHtml, 150);
+const dateText = ep.pubDate.toLocaleDateString('zh-TW', {
+  year: 'numeric', month: 'long', day: 'numeric',
+});
+
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'PodcastEpisode',
+  name: ep.title,
+  datePublished: ep.pubDate.toISOString(),
+  url: new URL(`/episodes/${ep.slug}`, Astro.site).href,
+  ...(ep.audioUrl && {
+    associatedMedia: { '@type': 'MediaObject', contentUrl: ep.audioUrl },
+  }),
+  partOfSeries: { '@type': 'PodcastSeries', name: SITE.name, url: Astro.site?.href },
+});
+---
+<Base title={`${ep.title}｜${SITE.name}`} description={description} image={ep.cover} type="article">
+  <script type="application/ld+json" set:html={jsonLd} slot="head" />
+  <article>
+    <p class="text-sm">{dateText}{ep.duration && ` · ${ep.duration}`}</p>
+    <h1 class="mt-2 font-display text-3xl font-bold text-brand-blue">{ep.title}</h1>
+    {ep.cover && (
+      <img src={ep.cover} alt={`${ep.title} 封面`} width="512" height="512"
+        class="mt-6 w-64 rounded-2xl" loading="lazy" />
+    )}
+    {ep.audioUrl && (
+      <audio id="main-audio-player" controls preload="metadata" src={ep.audioUrl}
+        class="mt-6 w-full">
+        您的瀏覽器不支援音訊播放。
+      </audio>
+    )}
+    <div class="show-notes mt-8" set:html={notesHtml} />
+    <hr class="my-10 border-brand-blue-tint" />
+    <section class="rounded-2xl bg-brand-blue-tint p-6">
+      <h2 class="font-display text-xl font-bold text-brand-blue">在其他平台收聽</h2>
+      <div class="mt-4"><PlatformBadges /></div>
+      <p class="mt-4 text-sm">
+        有想說的話？歡迎到
+        <a href={SITE.instagram} class="text-brand-blue underline">Instagram</a>
+        私訊我 💬
+      </p>
+    </section>
+  </article>
+</Base>
+<script>
+  import { initTimestampPlayer } from '../../scripts/timestamp-player.js';
+  initTimestampPlayer();
+</script>
