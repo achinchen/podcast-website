@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+  <channel>
+    <title>a.chin.logs</title>
+    <link>https://a-chin-logs.vercel.app</link>
+    <description>聊聊醫療與生命議題的溫柔對話</description>
+    <image>
+      <url>https://cdn.example.com/achinlogs/cover-2000.jpg</url>
+      <title>a.chin.logs</title>
+      <link>https://a-chin-logs.vercel.app</link>
+    </image>
+    <item>
+      <title>EP11 病主法之後：我們如何談死亡</title>
+      <guid isPermaLink="false">soundon-f3a9c1d2-000b</guid>
+      <pubDate>Tue, 07 Jul 2026 22:00:00 +0800</pubDate>
+      <enclosure url="https://rss.soundon.fm/audio/ep11.mp3" length="28311552" type="audio/mpeg"/>
+      <itunes:duration>41:07</itunes:duration>
+      <description><![CDATA[<p>本集重點：</p><p>02:15 開場閒聊</p><p>15:40 病主法三年回顧</p><p>1:02:30 聽眾來信</p><p>延伸閱讀：<a href="https://example.com/law?t=12:34">病主法 12:34 條文整理</a></p>]]></description>
+    </item>
+    <item>
+      <title>EP10 加護病房的日常</title>
+      <guid isPermaLink="false">soundon-f3a9c1d2-000a</guid>
+      <pubDate>Tue, 23 Jun 2026 22:00:00 +0800</pubDate>
+      <enclosure url="https://rss.soundon.fm/audio/ep10.mp3" length="26214400" type="audio/mpeg"/>
+      <description><![CDATA[<p>03:20 值班故事</p><p>21:05 家屬會議怎麼開</p>]]></description>
+    </item>
+    <item>
+      <title>EP09 訪談：安寧居家護理師</title>
+      <guid isPermaLink="false">soundon-f3a9c1d2-0009</guid>
+      <pubDate>Tue, 09 Jun 2026 22:00:00 +0800</pubDate>
+      <itunes:duration>38:12</itunes:duration>
+      <description><![CDATA[<p>本集音檔重新上架中。</p>]]></description>
+    </item>
+    <item>
+      <title>EP08 醫病溝通的三個誤區</title>
+      <guid isPermaLink="false">soundon-f3a9c1d2-0008</guid>
+      <pubDate>Tue, 26 May 2026 22:00:00 +0800</pubDate>
+      <enclosure url="https://rss.soundon.fm/audio/ep08.mp3" length="24117248" type="audio/mpeg"/>
+      <itunes:duration>35:44</itunes:duration>
+      <description><![CDATA[<p>05:10 誤區一：太快給答案</p>]]></description>
+    </item>
+    <item>
+      <title>EP07 當家人不願意放手</title>
+      <guid isPermaLink="false">soundon-f3a9c1d2-0007</guid>
+      <pubDate>Tue, 12 May 2026 22:00:00 +0800</pubDate>
+      <enclosure url="https://rss.soundon.fm/audio/ep07.mp3" length="23068672" type="audio/mpeg"/>
+      <itunes:duration>33:02</itunes:duration>
+      <description><![CDATA[<p>08:45 個案故事</p>]]></description>
+    </item>
+    <item>
+      <title>EP06 器捐協調師在做什麼</title>
+      <guid isPermaLink="false">soundon-f3a9c1d2-0006</guid>
+      <pubDate>Tue, 28 Apr 2026 22:00:00 +0800</pubDate>
+      <enclosure url="https://rss.soundon.fm/audio/ep06.mp3" length="22020096" type="audio/mpeg"/>
+      <itunes:duration>31:58</itunes:duration>
+      <description><![CDATA[<p>10:00 器捐流程</p>]]></description>
+    </item>
+    <item>
+      <title>EP05 預立醫療決定書怎麼簽</title>
+      <guid isPermaLink="false">soundon-f3a9c1d2-0005</guid>
+      <pubDate>Tue, 14 Apr 2026 22:00:00 +0800</pubDate>
+      <enclosure url="https://rss.soundon.fm/audio/ep05.mp3" length="20971520" type="audio/mpeg"/>
+      <itunes:duration>29:30</itunes:duration>
+      <itunes:image href="https://cdn.example.com/achinlogs/ep05-cover.jpg"/>
+      <description><![CDATA[<p>07:22 簽署流程</p>]]></description>
+    </item>
+    <item>
+      <title>EP04 住院醫師的眼淚</title>
+      <guid isPermaLink="false">soundon-f3a9c1d2-0004</guid>
+      <pubDate>Tue, 31 Mar 2026 22:00:00 +0800</pubDate>
+      <enclosure url="https://rss.soundon.fm/audio/ep04.mp3" length="19922944" type="audio/mpeg"/>
+      <itunes:duration>27:15</itunes:duration>
+      <description><![CDATA[<p>04:20 第一次宣告死亡</p>]]></description>
+    </item>
+    <item>
+      <title>EP03 你想在哪裡老去</title>
+      <guid isPermaLink="false">soundon-f3a9c1d2-0003</guid>
+      <pubDate>Tue, 17 Mar 2026 22:00:00 +0800</pubDate>
+      <enclosure url="https://rss.soundon.fm/audio/ep03.mp3" length="18874368" type="audio/mpeg"/>
+      <itunes:duration>26:40</itunes:duration>
+      <description><![CDATA[<p>06:00 長照現場</p>]]></description>
+    </item>
+    <item>
+      <title>EP02 白色巨塔外的溫柔</title>
+      <guid isPermaLink="false">soundon-f3a9c1d2-0002</guid>
+      <pubDate>Tue, 03 Mar 2026 22:00:00 +0800</pubDate>
+      <enclosure url="https://rss.soundon.fm/audio/ep02.mp3" length="17825792" type="audio/mpeg"/>
+      <itunes:duration>24:12</itunes:duration>
+      <description><![CDATA[<p>09:15 護理師視角</p>]]></description>
+    </item>
+    <item>
+      <title>EP01 為什麼開始錄 podcast</title>
+      <guid isPermaLink="false">soundon-f3a9c1d2-0001</guid>
+      <pubDate>Tue, 17 Feb 2026 22:00:00 +0800</pubDate>
+      <enclosure url="https://rss.soundon.fm/audio/ep01.mp3" length="16777216" type="audio/mpeg"/>
+      <itunes:duration>22:05</itunes:duration>
+      <description><![CDATA[<p>01:30 自我介紹</p>]]></description>
+    </item>
+  </channel>
+</rss>
