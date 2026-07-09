@@ -989,6 +989,13 @@ git commit -m "feat: homepage, paginated episode list, custom 404"
 
 ### Task 7: CI/CD — feed polling, deploy hook, failure notification
 
+> **Erratum (final review):** the "latest guid" comparison below was superseded by a
+> whole-feed content hash (sha256 over every item's guid/enclosure/title/pubDate plus
+> feed image/title; cache shape `{ feedHash, checkedAt }`). Spec §7's acceptance of
+> enclosure-URL rot assumed rebuilds happen on feed *edits*, not only on new episodes —
+> the latest-guid option couldn't deliver that. See `scripts/check-feed.mjs` for the
+> implemented version. A `ci.yml` (test+build on push/PR) was also added.
+
 **Files:**
 - Create: `scripts/check-feed.mjs`, `.feed-cache.json`, `.github/workflows/check-feed.yml`
 

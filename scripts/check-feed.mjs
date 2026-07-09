@@ -17,16 +17,19 @@ if (!url) {
 }
 
 const feed = await new Parser().parseURL(url); // throws → job fails → notification
-if (!feed.items?.length) throw new Error('Feed has no items or missing guid.');
+if (!feed.items?.length) throw new Error('Feed has no items.');
 
-// Content-hash comparison over all items plus feed-level image/title (spec §4 allows
-// "feed 內容雜湊"; never lastBuildDate). Catches show-note edits, cover swaps, and
-// enclosure-URL changes regardless of feed item order.
+// Content-hash comparison over (guid, enclosure url, title, pubDate) of every item
+// plus feed-level image/title (spec §4 allows "feed 內容雜湊"; never lastBuildDate).
+// Catches new episodes, title fixes, cover swaps, and enclosure-URL changes. The hash
+// is item-order-sensitive; a feed reorder just triggers one benign extra deploy.
 const feedHash = createHash('sha256')
   .update(
-    JSON.stringify(feed.items.map((i) => [i.guid, i.enclosure?.url ?? null, i.title ?? null, i.pubDate ?? null])) +
-      (feed.image?.url ?? '') +
-      (feed.title ?? ''),
+    JSON.stringify([
+      feed.items.map((i) => [i.guid, i.enclosure?.url ?? null, i.title ?? null, i.pubDate ?? null]),
+      feed.image?.url ?? null,
+      feed.title ?? null,
+    ]),
   )
   .digest('hex');
 
