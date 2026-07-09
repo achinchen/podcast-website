@@ -1,5 +1,9 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeAll } from 'vitest';
 import { getEpisodes, toStableSlug } from '../src/utils/rss.js';
+
+beforeAll(() => {
+  delete process.env.PODCAST_RSS_URL; // fixture-path tests must not hit the network
+});
 
 describe('toStableSlug', () => {
   it('produces ep-{8 hex} format', () => {
