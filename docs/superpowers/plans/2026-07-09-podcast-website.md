@@ -10,7 +10,7 @@
 
 ## Global Constraints
 
-- Show name copy is exactly `a.chin.logs` everywhere (user override of the spec's 《阿晴 Dialogues》). Page `<title>` format: `{單集標題}｜a.chin.logs`.
+- Show name copy is exactly `a.chin.logs` everywhere (user override of the spec's 《阿晴 Dialogues》). Page `<title>` format: `{標題}｜a.chin.logs`.
 - RSS is the single source of truth. Feed URL comes from env var `PODCAST_RSS_URL`; when unset, build reads local fixture `src/data/sample-feed.xml` (dev/test mode). No episode database.
 - Slug rule: `ep-` + first 8 hex chars of sha256(guid). Slug NEVER derives from title.
 - Feed fetch/parse failure must throw and fail the build (fail loudly). Missing individual fields get defaults and never abort the whole parse.
@@ -190,7 +190,7 @@ const ogImage = image && (image.startsWith('http') ? image : new URL(image, Astr
     <header class="mx-auto flex max-w-3xl items-center justify-between px-4 py-6">
       <a href="/" class="font-display text-2xl font-bold text-brand-blue">{SITE.name}</a>
       <nav>
-        <a href="/episodes" class="font-medium text-brand-blue hover:text-brand-blue-dark">單集列表</a>
+        <a href="/episodes" class="font-medium text-brand-blue hover:text-brand-blue-dark">列表</a>
       </nav>
     </header>
     <main class="mx-auto max-w-3xl px-4 pb-16">
@@ -478,7 +478,7 @@ function mapItem(item, feed) {
   return {
     guid: item.guid,
     slug: toStableSlug(item.guid),
-    title: item.title ?? '未命名單集',
+    title: item.title ?? '未命名',
     descriptionHtml: item.content ?? '',
     pubDate: new Date(item.pubDate ?? Date.now()),
     audioUrl: item.enclosure?.url ?? null,
@@ -908,13 +908,13 @@ const latest = episodes.slice(0, 3);
     <div class="mt-8 flex justify-center"><PlatformBadges /></div>
   </section>
   <section class="mt-8">
-    <h2 class="font-display text-2xl font-bold text-brand-blue">最新單集</h2>
+    <h2 class="font-display text-2xl font-bold text-brand-blue">最新</h2>
     <div class="mt-6 grid gap-6">
       {latest.map((ep) => <EpisodeCard episode={ep} />)}
     </div>
     <p class="mt-8 text-center">
       <a href="/episodes" class="font-medium text-brand-blue underline hover:text-brand-blue-dark">
-        看全部單集 →
+        看全部 →
       </a>
     </p>
   </section>
@@ -937,18 +937,18 @@ export async function getStaticPaths({ paginate }) {
 }
 const { page } = Astro.props;
 ---
-<Base title={`全部單集（第 ${page.currentPage} 頁）｜${SITE.name}`}>
-  <h1 class="font-display text-3xl font-bold text-brand-blue">全部單集</h1>
+<Base title={`全部（第 ${page.currentPage} 頁）｜${SITE.name}`}>
+  <h1 class="font-display text-3xl font-bold text-brand-blue">全部</h1>
   <div class="mt-8 grid gap-6">
     {page.data.map((ep) => <EpisodeCard episode={ep} />)}
   </div>
   <nav class="mt-10 flex items-center justify-between" aria-label="分頁">
     {page.url.prev
-      ? <a href={page.url.prev} class="badge-pill">← 較新單集</a>
+      ? <a href={page.url.prev} class="badge-pill">← 較新</a>
       : <span />}
     <span class="text-sm">第 {page.currentPage} / {page.lastPage} 頁</span>
     {page.url.next
-      ? <a href={page.url.next} class="badge-pill">較舊單集 →</a>
+      ? <a href={page.url.next} class="badge-pill">較舊 →</a>
       : <span />}
   </nav>
 </Base>
@@ -965,8 +965,8 @@ import { SITE } from '../config.js';
 <Base title={`找不到頁面｜${SITE.name}`}>
   <section class="py-20 text-center">
     <h1 class="font-display text-4xl font-bold text-brand-blue">404 找不到這一頁</h1>
-    <p class="mt-4">這個連結可能已失效，或單集網址有變動。</p>
-    <a href="/episodes" class="badge-pill mt-8">瀏覽全部單集</a>
+    <p class="mt-4">這個連結可能已失效，或網址有變動。</p>
+    <a href="/episodes" class="badge-pill mt-8">瀏覽全部</a>
   </section>
 </Base>
 ```

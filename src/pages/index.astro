@@ -14,13 +14,13 @@ const latest = episodes.slice(0, 3);
     <div class="mt-8 flex justify-center"><PlatformBadges /></div>
   </section>
   <section class="mt-8">
-    <h2 class="font-display text-2xl font-bold text-brand-blue">最新單集</h2>
+    <h2 class="font-display text-2xl font-bold text-brand-blue">最新</h2>
     <div class="mt-6 grid gap-6">
       {latest.map((ep) => <EpisodeCard episode={ep} />)}
     </div>
     <p class="mt-8 text-center">
       <a href="/episodes" class="font-medium text-brand-blue underline hover:text-brand-blue-dark">
-        看全部單集 →
+        看全部 →
       </a>
     </p>
   </section>

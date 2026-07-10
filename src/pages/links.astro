@@ -2,17 +2,15 @@
 import Base from '../layouts/Base.astro';
 import { getFeedMeta } from '../utils/rss.js';
 import { SITE } from '../config.js';
+import ApplePodcasts from '../components/icons/ApplePodcasts.astro';
+import Spotify from '../components/icons/Spotify.astro';
+import SoundOn from '../components/icons/SoundOn.astro';
+import KKBOX from '../components/icons/KKBOX.astro';
+import Instagram from '../components/icons/Instagram.astro';
 
 const meta = await getFeedMeta();
 const soundonUrl = SITE.soundon || meta.link;
 const cover = meta.cover;
-
-const links = [
-  { label: '在 Apple Podcasts 收聽', href: SITE.applePodcasts, icon: '🎧' },
-  { label: '在 Spotify 收聽', href: SITE.spotify, icon: '🎵' },
-  { label: '在 SoundOn 收聽', href: soundonUrl, icon: '🎙️' },
-  { label: '追蹤 Instagram', href: SITE.instagram, icon: '📷' },
-];
 ---
 <Base title={`${SITE.name} | Links`} description={SITE.tagline} image={cover}>
   <div class="mx-auto max-w-sm py-12 text-center">
@@ -28,17 +26,51 @@ const links = [
     <h1 class="mt-6 font-display text-3xl font-bold text-brand-blue">{SITE.name}</h1>
     <p class="mt-2 text-brand-ink">{SITE.tagline}</p>
     <nav class="mt-8 flex flex-col gap-4">
-      {links.map((link) => (
-        <a
-          href={link.href}
-          class="badge-pill w-full justify-center text-center"
-          target="_blank"
-          rel="noopener"
-        >
-          <span class="mr-2">{link.icon}</span>
-          {link.label}
-        </a>
-      ))}
+      <a
+        href={SITE.applePodcasts}
+        class="badge-pill w-full justify-center text-center"
+        target="_blank"
+        rel="noopener"
+      >
+        <ApplePodcasts class="mr-2 inline-block h-5 w-5" />
+        在 Apple Podcasts 收聽
+      </a>
+      <a
+        href={SITE.spotify}
+        class="badge-pill w-full justify-center text-center"
+        target="_blank"
+        rel="noopener"
+      >
+        <Spotify class="mr-2 inline-block h-5 w-5" />
+        在 Spotify 收聽
+      </a>
+      <a
+        href={soundonUrl}
+        class="badge-pill w-full justify-center text-center"
+        target="_blank"
+        rel="noopener"
+      >
+        <SoundOn class="mr-2 inline-block h-5 w-5" />
+        在 SoundOn 收聽
+      </a>
+      <a
+        href={SITE.kkbox}
+        class="badge-pill w-full justify-center text-center"
+        target="_blank"
+        rel="noopener"
+      >
+        <KKBOX class="mr-2 inline-block h-5 w-5" />
+        在 KKBOX 收聽
+      </a>
+      <a
+        href={SITE.instagram}
+        class="badge-pill w-full justify-center text-center"
+        target="_blank"
+        rel="noopener"
+      >
+        <Instagram class="mr-2 inline-block h-5 w-5" />
+        追蹤 Instagram
+      </a>
     </nav>
   </div>
 </Base>

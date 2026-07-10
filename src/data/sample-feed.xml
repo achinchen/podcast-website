@@ -1,100 +1,59 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
-  <channel>
-    <title>a.chin.logs</title>
-    <link>https://a-chin-logs.vercel.app</link>
-    <description>聊聊醫療與生命議題的溫柔對話</description>
-    <image>
-      <url>https://cdn.example.com/achinlogs/cover-2000.jpg</url>
-      <title>a.chin.logs</title>
-      <link>https://a-chin-logs.vercel.app</link>
-    </image>
-    <item>
-      <title>EP11 病主法之後：我們如何談死亡</title>
-      <guid isPermaLink="false">soundon-f3a9c1d2-000b</guid>
-      <pubDate>Tue, 07 Jul 2026 22:00:00 +0800</pubDate>
-      <enclosure url="https://rss.soundon.fm/audio/ep11.mp3" length="28311552" type="audio/mpeg"/>
-      <itunes:duration>41:07</itunes:duration>
-      <description><![CDATA[<p>本集重點：</p><p>02:15 開場閒聊</p><p>15:40 病主法三年回顧</p><p>1:02:30 聽眾來信</p><p>延伸閱讀：<a href="https://example.com/law?t=12:34">病主法 12:34 條文整理</a></p>]]></description>
-    </item>
-    <item>
-      <title>EP10 加護病房的日常</title>
-      <guid isPermaLink="false">soundon-f3a9c1d2-000a</guid>
-      <pubDate>Tue, 23 Jun 2026 22:00:00 +0800</pubDate>
-      <enclosure url="https://rss.soundon.fm/audio/ep10.mp3" length="26214400" type="audio/mpeg"/>
-      <description><![CDATA[<p>03:20 值班故事</p><p>21:05 家屬會議怎麼開</p>]]></description>
-    </item>
-    <item>
-      <title>EP09 訪談：安寧居家護理師</title>
-      <guid isPermaLink="false">soundon-f3a9c1d2-0009</guid>
-      <pubDate>Tue, 09 Jun 2026 22:00:00 +0800</pubDate>
-      <itunes:duration>38:12</itunes:duration>
-      <description><![CDATA[<p>本集音檔重新上架中。</p>]]></description>
-    </item>
-    <item>
-      <title>EP08 醫病溝通的三個誤區</title>
-      <guid isPermaLink="false">soundon-f3a9c1d2-0008</guid>
-      <pubDate>Tue, 26 May 2026 22:00:00 +0800</pubDate>
-      <enclosure url="https://rss.soundon.fm/audio/ep08.mp3" length="24117248" type="audio/mpeg"/>
-      <itunes:duration>35:44</itunes:duration>
-      <description><![CDATA[<p>05:10 誤區一：太快給答案</p>]]></description>
-    </item>
-    <item>
-      <title>EP07 當家人不願意放手</title>
-      <guid isPermaLink="false">soundon-f3a9c1d2-0007</guid>
-      <pubDate>Tue, 12 May 2026 22:00:00 +0800</pubDate>
-      <enclosure url="https://rss.soundon.fm/audio/ep07.mp3" length="23068672" type="audio/mpeg"/>
-      <itunes:duration>33:02</itunes:duration>
-      <description><![CDATA[<p>08:45 個案故事</p>]]></description>
-    </item>
-    <item>
-      <title>EP06 器捐協調師在做什麼</title>
-      <guid isPermaLink="false">soundon-f3a9c1d2-0006</guid>
-      <pubDate>Tue, 28 Apr 2026 22:00:00 +0800</pubDate>
-      <enclosure url="https://rss.soundon.fm/audio/ep06.mp3" length="22020096" type="audio/mpeg"/>
-      <itunes:duration>31:58</itunes:duration>
-      <description><![CDATA[<p>10:00 器捐流程</p>]]></description>
-    </item>
-    <item>
-      <title>EP05 預立醫療決定書怎麼簽</title>
-      <guid isPermaLink="false">soundon-f3a9c1d2-0005</guid>
-      <pubDate>Tue, 14 Apr 2026 22:00:00 +0800</pubDate>
-      <enclosure url="https://rss.soundon.fm/audio/ep05.mp3" length="20971520" type="audio/mpeg"/>
-      <itunes:duration>29:30</itunes:duration>
-      <itunes:image href="https://cdn.example.com/achinlogs/ep05-cover.jpg"/>
-      <description><![CDATA[<p>07:22 簽署流程</p>]]></description>
-    </item>
-    <item>
-      <title>EP04 住院醫師的眼淚</title>
-      <guid isPermaLink="false">soundon-f3a9c1d2-0004</guid>
-      <pubDate>Tue, 31 Mar 2026 22:00:00 +0800</pubDate>
-      <enclosure url="https://rss.soundon.fm/audio/ep04.mp3" length="19922944" type="audio/mpeg"/>
-      <itunes:duration>27:15</itunes:duration>
-      <description><![CDATA[<p>04:20 第一次宣告死亡</p>]]></description>
-    </item>
-    <item>
-      <title>EP03 你想在哪裡老去</title>
-      <guid isPermaLink="false">soundon-f3a9c1d2-0003</guid>
-      <pubDate>Tue, 17 Mar 2026 22:00:00 +0800</pubDate>
-      <enclosure url="https://rss.soundon.fm/audio/ep03.mp3" length="18874368" type="audio/mpeg"/>
-      <itunes:duration>26:40</itunes:duration>
-      <description><![CDATA[<p>06:00 長照現場</p>]]></description>
-    </item>
-    <item>
-      <title>EP02 白色巨塔外的溫柔</title>
-      <guid isPermaLink="false">soundon-f3a9c1d2-0002</guid>
-      <pubDate>Tue, 03 Mar 2026 22:00:00 +0800</pubDate>
-      <enclosure url="https://rss.soundon.fm/audio/ep02.mp3" length="17825792" type="audio/mpeg"/>
-      <itunes:duration>24:12</itunes:duration>
-      <description><![CDATA[<p>09:15 護理師視角</p>]]></description>
-    </item>
-    <item>
-      <title>EP01 為什麼開始錄 podcast</title>
-      <guid isPermaLink="false">soundon-f3a9c1d2-0001</guid>
-      <pubDate>Tue, 17 Feb 2026 22:00:00 +0800</pubDate>
-      <enclosure url="https://rss.soundon.fm/audio/ep01.mp3" length="16777216" type="audio/mpeg"/>
-      <itunes:duration>22:05</itunes:duration>
-      <description><![CDATA[<p>01:30 自我介紹</p>]]></description>
-    </item>
-  </channel>
-</rss>
+
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:googleplay="http://www.google.com/schemas/play-podcasts/1.0" xmlns:soundon="http://soundon.fm/spec/podcast-1.0"><channel><title><![CDATA[A Chin Logs]]></title><description><![CDATA[A Chin Logs]]></description><link>https://player.soundon.fm/p/8b628513-c167-4183-8b90-3fe7cc4ecf94</link><image><url>https://files.soundon.fm/1783316066645-64c98447-27d4-4ddc-b7dd-161da54c3279.jpeg</url><title>A Chin Logs</title><link>https://player.soundon.fm/p/8b628513-c167-4183-8b90-3fe7cc4ecf94</link></image><generator>SoundOn</generator><lastBuildDate>Fri, 10 Jul 2026 04:01:56 GMT</lastBuildDate><atom:link href="https://feeds.soundon.fm/podcasts/8b628513-c167-4183-8b90-3fe7cc4ecf94.xml" rel="self" type="application/rss+xml"/><copyright><![CDATA[a.chin.logs]]></copyright><language><![CDATA[zh-Hant]]></language><category><![CDATA[Education]]></category><category><![CDATA[Self-Improvement]]></category><category><![CDATA[Society & Culture]]></category><category><![CDATA[Documentary]]></category><category><![CDATA[Personal Journals]]></category><category><![CDATA[Philosophy]]></category><category><![CDATA[Places & Travel]]></category><category><![CDATA[Relationships]]></category><soundon:id>8b628513-c167-4183-8b90-3fe7cc4ecf94</soundon:id><soundon:searchId>8b628513-c167-4183-8b90-3fe7cc4ecf94</soundon:searchId><soundon:deleted>no</soundon:deleted><soundon:createdAt>2026-07-06T05:45:40.476Z</soundon:createdAt><soundon:updatedAt>2026-07-06T05:45:40.476Z</soundon:updatedAt><soundon:enableProductPage>false</soundon:enableProductPage><soundon:enableSubscription>false</soundon:enableSubscription><itunes:type>Serial</itunes:type><itunes:complete>no</itunes:complete><itunes:block>no</itunes:block><itunes:author><![CDATA[Chin]]></itunes:author><itunes:summary/><itunes:owner><itunes:name><![CDATA[Chin]]></itunes:name><itunes:email><![CDATA[a.chin.chen.one@gmail.com]]></itunes:email></itunes:owner><itunes:image href="https://files.soundon.fm/1783316066645-64c98447-27d4-4ddc-b7dd-161da54c3279.jpeg"/><itunes:explicit>no</itunes:explicit><itunes:category text="Society &amp; Culture"><itunes:category text="Personal Journals"/></itunes:category><item><title><![CDATA[EP1 當最愛的人被宣告準備畢業地球]]></title><description><![CDATA[「想想真的很笨呢。那時候，我自以為在用軟體工程師的方式，解決媽媽的焦慮。」 
+ 
+身為單身的小女兒，面對重病媽媽催我約會的焦慮，身為工程師的我用 Google 問卷跟朋友徵集「他們眼中的我」，為了向她證明我有能力一個人也能過得很好。 
+ 
+後來我才知道，她那份毫無保留的愛，不是理性的邏輯可解的。這一集，聊聊我在當最愛的人被宣告即將畢業地球的這段時間我們做了什麼，也談談「預立醫療決定書」，為什麼拒絕幫彼此做生死的決定，反而是最深情的愛。 
+ 
+如果每個人都是一本即將絕版的那本？趁著還有時間，一起來修這場名為告別的必修課。 
+ 
+📍 本集重點 
+<a href="0">00:00</a> 媽媽催我約會？我用工程師思維做問卷開導她的荒謬日常 
+<a href="04:20">04:20</a> 回頭才看懂的溫柔：父母倔強的背後，其實藏著最深的無助 
+<a href="14:50">14:50</a> 我不想替妳決定生命：在畢業前兩年，我們一起簽了預立醫療決定書 
+<a href="18:25">18:25</a> 什麼是安寧緩和醫療？針對總體痛苦的反思 
+<a href="24:20">24:20</a> 如果每個人都是一本即將絕版的書，你打算怎麼記錄下那些只字片語？ 
+ 
+💌 聽眾悄悄話 
+你跟家人聊過「畢業」後的事嗎？歡迎來信或到 IG 分享你的故事。 
+ 
+👉 追蹤 instagram <a href="https://www.instagram.com/a.chin.logs">@a.chin.logs</a> 
+👉 <a href="https://hpcod.mohw.gov.tw/HospWeb/rwd/QA/general_a.aspx)">預立醫療與安寧療護相關資源</a> ]]></description><link>https://player.soundon.fm/p/8b628513-c167-4183-8b90-3fe7cc4ecf94/episodes/8ad0e2df-2d31-4087-9570-8da4a1ce488b</link><guid isPermaLink="false">8ad0e2df-2d31-4087-9570-8da4a1ce488b</guid><dc:creator><![CDATA[Chin]]></dc:creator><pubDate>Fri, 10 Jul 2026 04:00:00 GMT</pubDate><enclosure url="https://rss.soundon.fm/rssf/8b628513-c167-4183-8b90-3fe7cc4ecf94/feedurl/8ad0e2df-2d31-4087-9570-8da4a1ce488b/rssFileVip.mp3?timestamp=1783656037879" length="1" type="audio/mpeg"/><content:encoded><![CDATA[<p><br />「想想真的很笨呢。那時候，我自以為在用軟體工程師的方式，解決媽媽的焦慮。」 
+<br /> <br />
+身為單身的小女兒，面對重病媽媽催我約會的焦慮，身為工程師的我用 Google 問卷跟朋友徵集「他們眼中的我」，為了向她證明我有能力一個人也能過得很好。 
+<br /> <br />
+後來我才知道，她那份毫無保留的愛，不是理性的邏輯可解的。這一集，聊聊我在當最愛的人被宣告即將畢業地球的這段時間我們做了什麼，也談談「預立醫療決定書」，為什麼拒絕幫彼此做生死的決定，反而是最深情的愛。 
+<br /> <br />
+如果每個人都是一本即將絕版的那本？趁著還有時間，一起來修這場名為告別的必修課。 
+<br /> <br />
+📍 本集重點 
+<br /><a href="0">00:00</a> 媽媽催我約會？我用工程師思維做問卷開導她的荒謬日常 
+<br /><a href="04:20">04:20</a> 回頭才看懂的溫柔：父母倔強的背後，其實藏著最深的無助 
+<br /><a href="14:50">14:50</a> 我不想替妳決定生命：在畢業前兩年，我們一起簽了預立醫療決定書 
+<br /><a href="18:25">18:25</a> 什麼是安寧緩和醫療？針對總體痛苦的反思 
+<br /><a href="24:20">24:20</a> 如果每個人都是一本即將絕版的書，你打算怎麼記錄下那些只字片語？ 
+<br /> <br />
+💌 聽眾悄悄話 
+<br />你跟家人聊過「畢業」後的事嗎？歡迎來信或到 IG 分享你的故事。 
+<br /> <br />
+👉 追蹤 instagram <a href="https://www.instagram.com/a.chin.logs">@a.chin.logs</a> 
+<br />👉 <a href="https://hpcod.mohw.gov.tw/HospWeb/rwd/QA/general_a.aspx)">預立醫療與安寧療護相關資源</a> </p>]]></content:encoded><soundon:id>8ad0e2df-2d31-4087-9570-8da4a1ce488b</soundon:id><soundon:createdAt>2026-07-10T03:24:18.564Z</soundon:createdAt><soundon:updatedAt>2026-07-10T04:00:37.879Z</soundon:updatedAt><soundon:exclusive>public</soundon:exclusive><itunes:summary><![CDATA[「想想真的很笨呢。那時候，我自以為在用軟體工程師的方式，解決媽媽的焦慮。」 
+ 
+身為單身的小女兒，面對重病媽媽催我約會的焦慮，身為工程師的我用 Google 問卷跟朋友徵集「他們眼中的我」，為了向她證明我有能力一個人也能過得很好。 
+ 
+後來我才知道，她那份毫無保留的愛，不是理性的邏輯可解的。這一集，聊聊我在當最愛的人被宣告即將畢業地球的這段時間我們做了什麼，也談談「預立醫療決定書」，為什麼拒絕幫彼此做生死的決定，反而是最深情的愛。 
+ 
+如果每個人都是一本即將絕版的那本？趁著還有時間，一起來修這場名為告別的必修課。 
+ 
+📍 本集重點 
+<a href="0">00:00</a> 媽媽催我約會？我用工程師思維做問卷開導她的荒謬日常 
+<a href="04:20">04:20</a> 回頭才看懂的溫柔：父母倔強的背後，其實藏著最深的無助 
+<a href="14:50">14:50</a> 我不想替妳決定生命：在畢業前兩年，我們一起簽了預立醫療決定書 
+<a href="18:25">18:25</a> 什麼是安寧緩和醫療？針對總體痛苦的反思 
+<a href="24:20">24:20</a> 如果每個人都是一本即將絕版的書，你打算怎麼記錄下那些只字片語？ 
+ 
+💌 聽眾悄悄話 
+你跟家人聊過「畢業」後的事嗎？歡迎來信或到 IG 分享你的故事。 
+ 
+👉 追蹤 instagram <a href="https://www.instagram.com/a.chin.logs">@a.chin.logs</a> 
+👉 <a href="https://hpcod.mohw.gov.tw/HospWeb/rwd/QA/general_a.aspx)">預立醫療與安寧療護相關資源</a> ]]></itunes:summary><itunes:author><![CDATA[Chin]]></itunes:author><itunes:episodeType>Full</itunes:episodeType><itunes:explicit>no</itunes:explicit><itunes:duration>1617</itunes:duration><itunes:season>1</itunes:season><itunes:episode>1</itunes:episode><itunes:keywords><![CDATA[畢業地球,安寧緩和,絕版,約會,工程師,醫療決定]]></itunes:keywords><itunes:image href="https://files.soundon.fm/1783316066645-64c98447-27d4-4ddc-b7dd-161da54c3279.jpeg"/></item></channel></rss>

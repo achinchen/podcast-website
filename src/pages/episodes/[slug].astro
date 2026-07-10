@@ -39,12 +39,8 @@ const jsonLd = JSON.stringify({
 <Base title={`${ep.title}｜${SITE.name}`} description={description} image={ep.cover} type="article">
   <script type="application/ld+json" set:html={jsonLd} slot="head" />
   <article>
-    <p class="text-sm">{dateText}{ep.duration && ` · ${ep.duration}`}</p>
+    <p class="text-sm">{dateText}</p>
     <h1 class="mt-2 font-display text-3xl font-bold text-brand-blue">{ep.title}</h1>
-    {ep.cover && (
-      <img src={ep.cover} alt={`${ep.title} 封面`} width="512" height="512"
-        class="mt-6 w-64 rounded-2xl" loading="lazy" />
-    )}
     {ep.audioUrl && (
       <audio id="main-audio-player" controls preload="metadata" src={ep.audioUrl}
         class="mt-6 w-full">
