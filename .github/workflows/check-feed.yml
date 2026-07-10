@@ -25,13 +25,9 @@ jobs:
         env:
           PODCAST_RSS_URL: ${{ secrets.PODCAST_RSS_URL }}
         run: node scripts/check-feed.mjs
-      - name: Commit cache and trigger Vercel deploy
+      - name: Commit cache
         if: steps.check.outputs.changed == 'true'
-        env:
-          DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
         run: |
-          # Trigger the deploy hook BEFORE pushing the cache: if the hook fails transiently, the step fails without committing the new guid, so the next run retries.
-          curl -fsS -X POST "$DEPLOY_HOOK"
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add .feed-cache.json

@@ -20,11 +20,15 @@ Without `PODCAST_RSS_URL` set, builds and tests use the local fixture
 - `PODCAST_RSS_URL` — SoundOn RSS feed URL (production builds)
 - `PUBLIC_SITE_URL` — production domain (canonical URLs, sitemap, JSON-LD)
 
-## GitHub secrets (feed-check workflow)
+## GitHub secrets (workflows)
 
-- `PODCAST_RSS_URL` — same feed URL as above
-- `VERCEL_DEPLOY_HOOK` — deploy hook triggered when the feed changes
+- `PODCAST_RSS_URL` — same feed URL as above (used by both deploy and feed-check workflows)
 - `DISCORD_WEBHOOK` — optional failure notifications
+
+## GitHub Pages setup (one-time)
+
+1. Repo → Settings → Pages → Source: **GitHub Actions**
+2. Add a DNS CNAME record: `podcast.achin.me` → `achinchen.github.io`
 
 > **Important:** GitHub disables scheduled workflows after ~60 days of repository
 > inactivity. Re-enable via the Actions tab or push a commit periodically. The cron
