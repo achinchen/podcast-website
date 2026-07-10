@@ -11,13 +11,13 @@ const platforms = [
 <div class="flex flex-wrap gap-3">
   {platforms.map((p) => (
     <a
-      class="badge-pill inline-flex items-center gap-2"
+      class="badge-pill"
       href={p.href}
       target="_blank"
       rel="noopener"
+      aria-label={p.label}
     >
-      <img src={p.logo.src} alt="" class="h-5 w-5" />
-      {p.label}
+      <img src={p.logo.src} alt="" class="h-6 w-6" />
     </a>
   ))}
 </div>
