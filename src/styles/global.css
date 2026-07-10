@@ -6,19 +6,37 @@
   --color-brand-cream: #EEEDE9;
   --color-brand-blue-tint: rgb(45 86 168 / 0.10); /* 8–12% per spec */
   --color-brand-ink: #2A2A28;
+  /* Semantic tokens for Bento-style redesign */
+  --color-surface: #FFFFFF;
+  --color-border: rgb(45 86 168 / 0.14);
+  --color-muted-fg: #6B6B68;
+  --color-ring: #2D56A8;
   --font-display: "Baloo 2", "Noto Sans TC", sans-serif;
   --font-body: "Noto Sans TC", sans-serif;
 }
 
 @layer components {
+  /* Bento card system */
+  .card {
+    @apply rounded-2xl border border-border bg-surface p-6 shadow-sm
+      transition-all duration-200 ease-out;
+  }
+  .card-hover {
+    @apply motion-safe:hover:scale-[1.02] hover:shadow-lg;
+  }
+
   .badge-pill {
     @apply inline-flex items-center rounded-full bg-brand-blue px-5 py-2.5
-      font-medium text-brand-cream transition-colors hover:bg-brand-blue-dark;
+      font-medium text-brand-cream transition-colors duration-200 hover:bg-brand-blue-dark
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring
+      focus-visible:ring-offset-2 focus-visible:ring-offset-brand-cream;
   }
   .timestamp-link {
     @apply inline-flex cursor-pointer items-center rounded-full bg-brand-blue-tint
-      px-2 py-0.5 font-medium text-brand-blue transition-colors
-      hover:bg-brand-blue hover:text-brand-cream;
+      px-2 py-0.5 font-medium text-brand-blue transition-colors duration-200
+      hover:bg-brand-blue hover:text-brand-cream
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring
+      focus-visible:ring-offset-1;
   }
   .show-notes {
     @apply whitespace-pre-line;
@@ -33,7 +51,10 @@
     @apply mt-8 rounded-2xl border border-brand-blue-tint;
   }
   .transcript-section summary {
-    @apply cursor-pointer px-6 py-4 font-display text-lg font-bold text-brand-blue;
+    @apply cursor-pointer rounded-t-2xl px-6 py-4 font-display text-lg font-bold text-brand-blue
+      transition-colors duration-200 hover:bg-brand-blue-tint
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring
+      focus-visible:ring-inset;
   }
   .transcript-section summary::-webkit-details-marker {
     @apply text-brand-blue;
