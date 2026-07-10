@@ -11,7 +11,7 @@ const soundonUrl = SITE.soundon || meta.link;
 const cover = meta.cover;
 ---
 <Base title={`${SITE.name} | Links`} description={SITE.tagline} image={cover}>
-  <div class="mx-auto max-w-sm py-12 text-center">
+  <div class="mx-auto max-w-md py-16">
     {cover && (
       <img
         src={cover}
@@ -21,19 +21,19 @@ const cover = meta.cover;
         class="mx-auto w-32 rounded-2xl"
       />
     )}
-    <h1 class="mt-6 font-display text-3xl font-bold text-brand-blue">{SITE.name}</h1>
-    <p class="mt-2 text-muted-fg">{SITE.tagline}</p>
-    <nav class="mt-8 flex flex-col gap-4">
-      <a href={SITE.applePodcasts} class="card card-hover flex items-center justify-center gap-3 py-4" target="_blank" rel="noopener">
-        <ApplePodcasts class="h-6 w-6" />
+    <h1 class="mt-8 text-center font-display text-4xl font-bold text-brand-ink sm:text-5xl">{SITE.name}</h1>
+    <p class="mt-3 text-center text-lg text-muted-fg">{SITE.tagline}</p>
+    <nav class="mt-12 divide-y divide-border">
+      <a href={SITE.applePodcasts} class="flex items-center gap-4 py-5 transition-colors duration-200 hover:text-brand-blue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2" target="_blank" rel="noopener">
+        <ApplePodcasts class="h-6 w-6 shrink-0" />
         <span class="font-medium">在 Apple Podcasts 收聽</span>
       </a>
-      <a href={SITE.spotify} class="card card-hover flex items-center justify-center gap-3 py-4" target="_blank" rel="noopener">
-        <Spotify class="h-6 w-6" />
+      <a href={SITE.spotify} class="flex items-center gap-4 py-5 transition-colors duration-200 hover:text-brand-blue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2" target="_blank" rel="noopener">
+        <Spotify class="h-6 w-6 shrink-0" />
         <span class="font-medium">在 Spotify 收聽</span>
       </a>
-      <a href={soundonUrl} class="card card-hover flex items-center justify-center gap-3 py-4" target="_blank" rel="noopener">
-        <SoundOn class="h-6 w-6" />
+      <a href={soundonUrl} class="flex items-center gap-4 py-5 transition-colors duration-200 hover:text-brand-blue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2" target="_blank" rel="noopener">
+        <SoundOn class="h-6 w-6 shrink-0" />
         <span class="font-medium">在 SoundOn 收聽</span>
       </a>
     </nav>
