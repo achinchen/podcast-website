@@ -5,8 +5,6 @@ import { SITE } from '../config.js';
 import ApplePodcasts from '../components/icons/ApplePodcasts.astro';
 import Spotify from '../components/icons/Spotify.astro';
 import SoundOn from '../components/icons/SoundOn.astro';
-import KKBOX from '../components/icons/KKBOX.astro';
-import Instagram from '../components/icons/Instagram.astro';
 
 const meta = await getFeedMeta();
 const soundonUrl = SITE.soundon || meta.link;
@@ -37,14 +35,6 @@ const cover = meta.cover;
       <a href={soundonUrl} class="card card-hover flex items-center justify-center gap-3 py-4" target="_blank" rel="noopener">
         <SoundOn class="h-6 w-6" />
         <span class="font-medium">在 SoundOn 收聽</span>
-      </a>
-      <a href={SITE.kkbox} class="card card-hover flex items-center justify-center gap-3 py-4" target="_blank" rel="noopener">
-        <KKBOX class="h-6 w-6" />
-        <span class="font-medium">在 KKBOX 收聽</span>
-      </a>
-      <a href={SITE.instagram} class="card card-hover flex items-center justify-center gap-3 py-4" target="_blank" rel="noopener">
-        <Instagram class="h-6 w-6" />
-        <span class="font-medium">追蹤 Instagram</span>
       </a>
     </nav>
   </div>

@@ -20,7 +20,7 @@ const description = excerpt(ep.descriptionHtml, 150);
 const transcriptHtml = ep.transcript && isSRT(ep.transcript)
   ? srtToHtml(ep.transcript)
   : ep.transcript;
-const dateText = ep.pubDate.toLocaleDateString('zh-TW', {
+const dateText = ep.pubDate.toLocaleDateString('US', {
   year: 'numeric', month: 'long', day: 'numeric',
 });
 
@@ -63,9 +63,9 @@ const jsonLd = JSON.stringify({
       <h2 class="font-display text-xl font-bold text-brand-blue">在其他平台收聽</h2>
       <div class="mt-4"><PlatformBadges /></div>
       <p class="mt-4 text-sm text-muted-fg">
-        有想說的話？歡迎到
+        有想說的話？歡迎到 
         <a href={SITE.instagram} class="text-brand-blue underline hover:text-brand-blue-dark">Instagram</a>
-        私訊我 💬
+         私訊我 💬
       </p>
     </section>
   </article>

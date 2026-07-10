@@ -820,9 +820,9 @@ const jsonLd = JSON.stringify({
       <h2 class="font-display text-xl font-bold text-brand-blue">在其他平台收聽</h2>
       <div class="mt-4"><PlatformBadges /></div>
       <p class="mt-4 text-sm">
-        有想說的話？歡迎到
+        有想說的話？歡迎到 
         <a href={SITE.instagram} class="text-brand-blue underline">Instagram</a>
-        私訊我 💬
+         私訊我 💬
       </p>
     </section>
   </article>

@@ -16,13 +16,9 @@
 }
 
 @layer components {
-  /* Bento card system */
-  .card {
-    @apply rounded-2xl border border-border bg-surface p-6 shadow-sm
-      transition-all duration-200 ease-out;
-  }
-  .card-hover {
-    @apply motion-safe:hover:scale-[1.02] hover:shadow-lg;
+  /* Editorial list-item pattern (used with divide-y on parent) */
+  .list-item {
+    @apply py-8;
   }
 
   .badge-pill {
@@ -64,6 +60,6 @@
     @apply mb-4;
   }
   .transcript-content {
-    @apply whitespace-pre-line rounded-2xl border border-border bg-surface p-6 text-sm leading-relaxed shadow-sm;
+    @apply whitespace-pre-line border-l-2 border-border pl-6 text-sm leading-relaxed;
   }
 }
