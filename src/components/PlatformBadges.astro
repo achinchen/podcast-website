@@ -8,16 +8,15 @@ const platforms = [
   { label: '在 Spotify 收聽', href: SITE.spotify, logo: spotifyLogo },
 ];
 ---
-<div class="flex flex-wrap gap-3">
+<div class="flex flex-wrap gap-4">
   {platforms.map((p) => (
     <a
-      class="badge-pill"
       href={p.href}
       target="_blank"
       rel="noopener"
       aria-label={p.label}
     >
-      <img src={p.logo.src} alt="" class="h-6 w-6" />
+      <img src={p.logo.src} alt="" class="h-10 w-10" />
     </a>
   ))}
 </div>
