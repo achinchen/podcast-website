@@ -1,6 +1,8 @@
 ---
 import '../styles/global.css';
 import { SITE } from '../config.js';
+import appleListenOn from '../assets/apple-podcast/listen-on.svg';
+import spotifyListenOn from '../assets/spotify/listen-on.svg';
 
 const {
   title = SITE.name,
@@ -45,10 +47,18 @@ const ogImage = image && (image.startsWith('http') ? image : new URL(image, Astr
     <main class="mx-auto max-w-3xl px-4 pb-16">
       <slot />
     </main>
-    <footer class="mx-auto max-w-3xl px-4 py-8 text-sm">
-      <p>
+    <footer class="mx-auto max-w-3xl px-4 py-8">
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href={SITE.applePodcasts} target="_blank" rel="noopener" aria-label="在 Apple Podcasts 收聽">
+          <img src={appleListenOn.src} alt="Listen on Apple Podcasts" class="h-10" />
+        </a>
+        <a href={SITE.spotify} target="_blank" rel="noopener" aria-label="在 Spotify 收聽">
+          <img src={spotifyListenOn.src} alt="Listen on Spotify" class="h-10" />
+        </a>
+      </div>
+      <p class="mt-4 text-center text-sm">
         © {new Date().getFullYear()} {SITE.name} ·
-         <a href={SITE.instagram} class="text-brand-blue underline">Instagram</a> 
+        <a href={SITE.instagram} class="text-brand-blue underline" target="_blank" rel="noopener">Instagram</a>
       </p>
     </footer>
   </body>
