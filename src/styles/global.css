@@ -27,4 +27,18 @@
     @apply text-brand-blue underline hover:text-brand-blue-dark;
   }
   .show-notes p { @apply my-4; }
+
+  /* Transcript section */
+  .transcript-section {
+    @apply mt-8 rounded-2xl border border-brand-blue-tint;
+  }
+  .transcript-section summary {
+    @apply cursor-pointer px-6 py-4 font-display text-lg font-bold text-brand-blue;
+  }
+  .transcript-section summary::-webkit-details-marker {
+    @apply text-brand-blue;
+  }
+  .transcript-content {
+    @apply whitespace-pre-line border-t border-brand-blue-tint px-6 py-4 text-sm leading-relaxed;
+  }
 }

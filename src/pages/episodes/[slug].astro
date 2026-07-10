@@ -46,6 +46,14 @@ const jsonLd = JSON.stringify({
       </audio>
     )}
     <div class="show-notes mt-8" set:html={notesHtml} />
+
+    {ep.transcript && (
+      <details class="transcript-section">
+        <summary>逐字稿 Transcript</summary>
+        <div class="transcript-content">{ep.transcript}</div>
+      </details>
+    )}
+
     <hr class="my-10 border-brand-blue-tint" />
     <section class="rounded-2xl bg-brand-blue-tint p-6">
       <h2 class="font-display text-xl font-bold text-brand-blue">在其他平台收聽</h2>
