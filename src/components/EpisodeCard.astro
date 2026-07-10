@@ -5,15 +5,15 @@ const dateText = episode.pubDate.toLocaleDateString('US', {
   year: 'numeric', month: 'long', day: 'numeric',
 });
 ---
-<article class="card card-hover group">
+<article class="list-item group">
   <p class="text-sm font-medium text-muted-fg">{dateText}</p>
-  <h3 class="mt-2 font-display text-xl font-bold">
-    <a href={`/episodes/${episode.slug}`} class="text-brand-blue transition-colors group-hover:text-brand-blue-dark">
+  <h3 class="mt-2 font-display text-2xl font-bold sm:text-3xl">
+    <a href={`/episodes/${episode.slug}`} class="text-brand-ink transition-colors group-hover:text-brand-blue">
       {episode.title}
     </a>
   </h3>
-  <p class="mt-2 text-brand-ink">{excerpt(episode.descriptionHtml, 120)}</p>
+  <p class="mt-3 text-brand-ink">{excerpt(episode.descriptionHtml, 120)}</p>
   <a href={`/episodes/${episode.slug}`}
-    class="badge-pill mt-4"
-    aria-label={`播放 ${episode.title}`}>▶ 收聽本集</a>
+    class="mt-4 inline-flex items-center gap-1 font-medium text-brand-blue transition-transform duration-200 hover:text-brand-blue-dark group-hover:translate-x-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+    aria-label={`播放 ${episode.title}`}>收聽本集 →</a>
 </article>
