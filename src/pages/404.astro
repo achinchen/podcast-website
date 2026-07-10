@@ -3,9 +3,10 @@ import Base from '../layouts/Base.astro';
 import { SITE } from '../config.js';
 ---
 <Base title={`找不到頁面｜${SITE.name}`}>
-  <section class="card mx-auto mt-16 max-w-md py-16 text-center">
-    <h1 class="font-display text-4xl font-bold text-brand-blue">404 找不到這一頁</h1>
-    <p class="mt-4 text-muted-fg">這個連結可能已失效，或網址有變動。</p>
-    <a href="/episodes" class="badge-pill mt-8 inline-flex">瀏覽全部</a>
+  <section class="mx-auto mt-24 max-w-md py-16 text-center sm:mt-32">
+    <h1 class="font-display text-5xl font-bold text-brand-ink sm:text-6xl">404</h1>
+    <p class="mt-4 text-xl text-muted-fg">找不到這一頁</p>
+    <p class="mt-2 text-muted-fg">這個連結可能已失效，或網址有變動。</p>
+    <a href="/episodes" class="badge-pill mt-10 inline-flex">瀏覽全部</a>
   </section>
 </Base>
