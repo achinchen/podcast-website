@@ -3,6 +3,7 @@ import '../styles/global.css';
 import { SITE } from '../config.js';
 import appleListenOn from '../assets/apple-podcast/listen-on.svg';
 import spotifyListenOn from '../assets/spotify/listen-on.svg';
+import navigator from '../assets/navigator.png';
 
 const {
   title = SITE.name,
@@ -12,6 +13,7 @@ const {
   chrome = true,
 } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const isHomePage = Astro.url.pathname === '/';
 const ogImage = image && (image.startsWith('http') ? image : new URL(image, Astro.site).href);
 ---
 <!doctype html>
@@ -50,7 +52,9 @@ const ogImage = image && (image.startsWith('http') ? image : new URL(image, Astr
         </a>
         <header class="sticky top-0 z-40 border-b border-border backdrop-blur">
           <div class="mx-auto flex max-w-3xl items-center justify-between px-4 py-6">
-            <a href="/" class="font-display text-2xl font-bold text-brand-blue">{SITE.name}</a>
+            <a href="/" class="font-display text-2xl font-bold text-brand-blue">
+              {!isHomePage && <img src={navigator.src} alt={SITE.name} class="h-10" />}
+            </a>
             <nav>
               <a href="/episodes" class="font-medium text-brand-blue hover:text-brand-blue-dark">列表</a>
             </nav>
