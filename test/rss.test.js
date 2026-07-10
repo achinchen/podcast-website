@@ -72,8 +72,8 @@ describe('transcript loading', () => {
 
   it('loads transcript from local file when present', async () => {
     const eps = await getEpisodes();
-    // EP1 has a transcript file at src/transcripts/{guid}.md
+    // EP1 has a transcript file at src/transcripts/{guid}.md (SRT format)
     const ep1 = eps.find((e) => e.title.includes('EP1'));
-    expect(ep1.transcript).toContain('EP1 的逐字稿測試內容');
+    expect(ep1.transcript).toContain('a.chin.logs');
   });
 });
