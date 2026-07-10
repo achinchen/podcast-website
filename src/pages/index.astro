@@ -11,20 +11,20 @@ const cover = meta.cover;
 const latest = episodes.slice(0, 3);
 ---
 <Base image={episodes[0]?.cover}>
-  <section class="py-24 text-center sm:py-48">
+  <section class="text-center py-10 sm:py-20">
     {cover && (
       <img
         src={cover}
         alt={`${SITE.name} 封面`}
         width="480"
         height="480"
-        class="mx-auto w-48 rounded-2xl"
+        class="mx-auto w-52 rounded-2xl"
       />
     )}
-    <p class="mx-auto mt-6 max-w-xl text-xl text-muted-fg sm:whitespace-break-spaces">{SITE.tagline}</p>
-    <div class="mt-10 flex justify-center gap-4"><PlatformBadges /></div>
+    <p class="mx-auto my-5 sm:my-10 max-w-xl text-base sm:text-xl text-muted-fg whitespace-break-spaces">{SITE.tagline}</p>
+    <div class="flex justify-center gap-4"><PlatformBadges /></div>
   </section>
-  <section class="mt-16">
+  <section class="border-t border-border py-12 sm:py-20">
     <h2 class="font-display text-3xl font-bold text-brand-ink sm:text-4xl">最新發佈</h2>
     <div class="mt-8 divide-y divide-border">
       {latest.map((ep) => <EpisodeCard episode={ep} />)}
