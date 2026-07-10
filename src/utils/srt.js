@@ -124,7 +124,8 @@ export function srtToHtml(srtContent) {
   }
   
   return paragraphs.map(p => {
-    const timestampBtn = `<button type="button" class="timestamp-link mr-2" data-seek="${p.startSeconds}">${p.startTime}</button>`;
+    // Use data-time with MM:SS format to match timestamp-player.js
+    const timestampBtn = `<button type="button" class="timestamp-link mr-2" data-time="${p.startTime}">${p.startTime}</button>`;
     const text = p.texts.join(' ');
     return `<p class="my-3">${timestampBtn}${text}</p>`;
   }).join('\n');
