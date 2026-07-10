@@ -1,7 +1,8 @@
 ---
 import '../styles/global.css';
 import { SITE } from '../config.js';
-import ListenOnBadge from '../components/ListenOnBadge.astro';
+import appleListenOn from '../assets/apple-podcast/listen-on.svg';
+import spotifyListenOn from '../assets/spotify/listen-on.svg';
 
 const {
   title = SITE.name,
@@ -48,8 +49,12 @@ const ogImage = image && (image.startsWith('http') ? image : new URL(image, Astr
     </main>
     <footer class="mx-auto max-w-3xl px-4 py-8">
       <div class="flex flex-wrap items-center justify-center gap-4">
-        <ListenOnBadge platform="apple" href={SITE.applePodcasts} />
-        <ListenOnBadge platform="spotify" href={SITE.spotify} />
+        <a href={SITE.applePodcasts} target="_blank" rel="noopener" aria-label="在 Apple Podcasts 收聽">
+          <img src={appleListenOn.src} alt="Listen on Apple Podcasts" class="h-10" />
+        </a>
+        <a href={SITE.spotify} target="_blank" rel="noopener" aria-label="在 Spotify 收聽">
+          <img src={spotifyListenOn.src} alt="Listen on Spotify" class="h-10" />
+        </a>
       </div>
       <p class="mt-4 text-center text-sm">
         © {new Date().getFullYear()} {SITE.name} ·
