@@ -20,6 +20,9 @@
       px-2 py-0.5 font-medium text-brand-blue transition-colors
       hover:bg-brand-blue hover:text-brand-cream;
   }
+  .show-notes {
+    @apply whitespace-pre-line;
+  }
   .show-notes a {
     @apply text-brand-blue underline hover:text-brand-blue-dark;
   }
