@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeAll } from 'vitest';
-import { getEpisodes, toStableSlug } from '../src/utils/rss.js';
+import { getEpisodes, toStableSlug, getFeedMeta } from '../src/utils/rss.js';
 
 beforeAll(() => {
   delete process.env.PODCAST_RSS_URL; // fixture-path tests must not hit the network
@@ -51,5 +51,14 @@ describe('getEpisodes (local fixture)', () => {
     const eps = await getEpisodes();
     // Real SoundOn feed uses <br /> tags in content:encoded
     expect(eps[0].descriptionHtml).toContain('<');
+  });
+});
+
+describe('getFeedMeta (local fixture)', () => {
+  it('returns feed title, link, and cover', async () => {
+    const meta = await getFeedMeta();
+    expect(meta.title).toBe('A Chin Logs');
+    expect(meta.link).toBe('https://player.soundon.fm/p/8b628513-c167-4183-8b90-3fe7cc4ecf94');
+    expect(meta.cover).toBe('https://files.soundon.fm/1783316066645-64c98447-27d4-4ddc-b7dd-161da54c3279.jpeg');
   });
 });

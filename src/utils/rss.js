@@ -26,7 +26,7 @@ function mapItem(item, feed) {
   return {
     guid: item.guid,
     slug: toStableSlug(item.guid),
-    title: item.title ?? '未命名單集',
+    title: item.title ?? '未命名',
     descriptionHtml: item.content ?? '',
     pubDate: new Date(item.pubDate ?? Date.now()),
     audioUrl: item.enclosure?.url ?? null,
@@ -35,14 +35,25 @@ function mapItem(item, feed) {
   };
 }
 
-export async function getEpisodes(rssUrl = process.env.PODCAST_RSS_URL) {
-  // Fetch/parse failures throw → Astro build fails loudly → Vercel keeps last deploy.
-  const feed = rssUrl
+async function getFeed(rssUrl = process.env.PODCAST_RSS_URL) {
+  return rssUrl
     ? await parser.parseURL(rssUrl)
     : await parser.parseString(
-        // Resolve from project root: import.meta.url points at the bundled
-        // chunk during Astro prerendering, so relative URLs break there.
         await readFile(resolve(process.cwd(), 'src/data/sample-feed.xml'), 'utf8'),
       );
+}
+
+export async function getEpisodes(rssUrl = process.env.PODCAST_RSS_URL) {
+  // Fetch/parse failures throw → Astro build fails loudly → Vercel keeps last deploy.
+  const feed = await getFeed(rssUrl);
   return feed.items.map((item) => mapItem(item, feed)).sort((a, b) => b.pubDate - a.pubDate);
+}
+
+export async function getFeedMeta(rssUrl = process.env.PODCAST_RSS_URL) {
+  const feed = await getFeed(rssUrl);
+  return {
+    title: feed.title ?? '',
+    link: feed.link ?? '',
+    cover: feed.image?.url ?? '',
+  };
 }
