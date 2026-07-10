@@ -24,52 +24,27 @@ const cover = meta.cover;
       />
     )}
     <h1 class="mt-6 font-display text-3xl font-bold text-brand-blue">{SITE.name}</h1>
-    <p class="mt-2 text-brand-ink">{SITE.tagline}</p>
+    <p class="mt-2 text-muted-fg">{SITE.tagline}</p>
     <nav class="mt-8 flex flex-col gap-4">
-      <a
-        href={SITE.applePodcasts}
-        class="badge-pill w-full justify-center text-center"
-        target="_blank"
-        rel="noopener"
-      >
-        <ApplePodcasts class="mr-2 inline-block h-5 w-5" />
-        在 Apple Podcasts 收聽
+      <a href={SITE.applePodcasts} class="card card-hover flex items-center justify-center gap-3 py-4" target="_blank" rel="noopener">
+        <ApplePodcasts class="h-6 w-6" />
+        <span class="font-medium">在 Apple Podcasts 收聽</span>
       </a>
-      <a
-        href={SITE.spotify}
-        class="badge-pill w-full justify-center text-center"
-        target="_blank"
-        rel="noopener"
-      >
-        <Spotify class="mr-2 inline-block h-5 w-5" />
-        在 Spotify 收聽
+      <a href={SITE.spotify} class="card card-hover flex items-center justify-center gap-3 py-4" target="_blank" rel="noopener">
+        <Spotify class="h-6 w-6" />
+        <span class="font-medium">在 Spotify 收聽</span>
       </a>
-      <a
-        href={soundonUrl}
-        class="badge-pill w-full justify-center text-center"
-        target="_blank"
-        rel="noopener"
-      >
-        <SoundOn class="mr-2 inline-block h-5 w-5" />
-        在 SoundOn 收聽
+      <a href={soundonUrl} class="card card-hover flex items-center justify-center gap-3 py-4" target="_blank" rel="noopener">
+        <SoundOn class="h-6 w-6" />
+        <span class="font-medium">在 SoundOn 收聽</span>
       </a>
-      <a
-        href={SITE.kkbox}
-        class="badge-pill w-full justify-center text-center"
-        target="_blank"
-        rel="noopener"
-      >
-        <KKBOX class="mr-2 inline-block h-5 w-5" />
-        在 KKBOX 收聽
+      <a href={SITE.kkbox} class="card card-hover flex items-center justify-center gap-3 py-4" target="_blank" rel="noopener">
+        <KKBOX class="h-6 w-6" />
+        <span class="font-medium">在 KKBOX 收聽</span>
       </a>
-      <a
-        href={SITE.instagram}
-        class="badge-pill w-full justify-center text-center"
-        target="_blank"
-        rel="noopener"
-      >
-        <Instagram class="mr-2 inline-block h-5 w-5" />
-        追蹤 Instagram
+      <a href={SITE.instagram} class="card card-hover flex items-center justify-center gap-3 py-4" target="_blank" rel="noopener">
+        <Instagram class="h-6 w-6" />
+        <span class="font-medium">追蹤 Instagram</span>
       </a>
     </nav>
   </div>
