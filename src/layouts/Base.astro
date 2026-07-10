@@ -9,6 +9,7 @@ const {
   description = SITE.tagline,
   image = null,
   type = 'website',
+  chrome = true,
 } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImage = image && (image.startsWith('http') ? image : new URL(image, Astro.site).href);
@@ -41,30 +42,34 @@ const ogImage = image && (image.startsWith('http') ? image : new URL(image, Astr
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-brand-blue focus:px-4 focus:py-2 focus:text-brand-cream">
       跳到主要內容
     </a>
-    <header class="sticky top-0 z-40 border-b border-border bg-brand-cream/90 backdrop-blur">
-      <div class="mx-auto flex max-w-3xl items-center justify-between px-4 py-6">
-        <a href="/" class="font-display text-2xl font-bold text-brand-blue">{SITE.name}</a>
-        <nav>
-          <a href="/episodes" class="font-medium text-brand-blue hover:text-brand-blue-dark">列表</a>
-        </nav>
-      </div>
-    </header>
+    {chrome && (
+      <header class="sticky top-0 z-40 border-b border-border bg-brand-cream/90 backdrop-blur">
+        <div class="mx-auto flex max-w-3xl items-center justify-between px-4 py-6">
+          <a href="/" class="font-display text-2xl font-bold text-brand-blue">{SITE.name}</a>
+          <nav>
+            <a href="/episodes" class="font-medium text-brand-blue hover:text-brand-blue-dark">列表</a>
+          </nav>
+        </div>
+      </header>
+    )}
     <main id="main-content" class="mx-auto max-w-3xl px-4 pb-16">
       <slot />
     </main>
-    <footer class="mx-auto max-w-3xl border-t border-border px-4 py-10">
-      <div class="flex flex-wrap items-center justify-center gap-4">
-        <a href={SITE.applePodcasts} target="_blank" rel="noopener" aria-label="在 Apple Podcasts 收聽">
-          <img src={appleListenOn.src} alt="Listen on Apple Podcasts" class="h-10" />
-        </a>
-        <a href={SITE.spotify} target="_blank" rel="noopener" aria-label="在 Spotify 收聽">
-          <img src={spotifyListenOn.src} alt="Listen on Spotify" class="h-10" />
-        </a>
-      </div>
-      <p class="mt-4 text-center text-sm">
-        © {new Date().getFullYear()} {SITE.name} ·
-        <a href={SITE.instagram} class="text-brand-blue underline" target="_blank" rel="noopener">Instagram</a>
-      </p>
-    </footer>
+    {chrome && (
+      <footer class="mx-auto max-w-3xl border-t border-border px-4 py-10">
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <a href={SITE.applePodcasts} target="_blank" rel="noopener" aria-label="在 Apple Podcasts 收聽">
+            <img src={appleListenOn.src} alt="Listen on Apple Podcasts" class="h-10" />
+          </a>
+          <a href={SITE.spotify} target="_blank" rel="noopener" aria-label="在 Spotify 收聽">
+            <img src={spotifyListenOn.src} alt="Listen on Spotify" class="h-10" />
+          </a>
+        </div>
+        <p class="mt-4 text-center text-sm">
+          © {new Date().getFullYear()} {SITE.name} ·
+          <a href={SITE.instagram} class="text-brand-blue underline" target="_blank" rel="noopener">Instagram</a>
+        </p>
+      </footer>
+    )}
   </body>
 </html>

@@ -2,14 +2,25 @@
 import Base from '../layouts/Base.astro';
 import EpisodeCard from '../components/EpisodeCard.astro';
 import PlatformBadges from '../components/PlatformBadges.astro';
-import { getEpisodes } from '../utils/rss.js';
+import { getEpisodes, getFeedMeta } from '../utils/rss.js';
 import { SITE } from '../config.js';
+
 const episodes = await getEpisodes();
+const meta = await getFeedMeta();
+const cover = meta.cover;
 const latest = episodes.slice(0, 3);
 ---
 <Base image={episodes[0]?.cover}>
   <section class="py-24 text-center sm:py-32">
-    <h1 class="font-display text-6xl font-bold text-brand-ink sm:text-7xl">{SITE.name}</h1>
+    {cover && (
+      <img
+        src={cover}
+        alt={`${SITE.name} 封面`}
+        width="128"
+        height="128"
+        class="mx-auto w-48 rounded-2xl"
+      />
+    )}
     <p class="mx-auto mt-6 max-w-xl text-xl text-muted-fg sm:whitespace-break-spaces">{SITE.tagline}</p>
     <div class="mt-10 flex justify-center gap-4"><PlatformBadges /></div>
   </section>
@@ -20,7 +31,7 @@ const latest = episodes.slice(0, 3);
     </div>
     <p class="mt-12 text-center">
       <a href="/episodes" class="badge-pill">
-        看全部 →
+        看全部
       </a>
     </p>
   </section>

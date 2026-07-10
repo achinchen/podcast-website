@@ -27,6 +27,14 @@ async function loadLocalTranscript(guid) {
   return await readFile(path, 'utf8');
 }
 
+// SoundOn appends this boilerplate to every episode's content:encoded.
+const SOUNDON_HOSTING_CREDIT =
+  /\s*(<br\s*\/?>\s*)*--\s*(<br\s*\/?>\s*)*\s*Hosting provided by\s*<a[^>]*>\s*SoundOn\s*<\/a>\s*/gi;
+
+function stripHostingCredit(html) {
+  return html.replace(SOUNDON_HOSTING_CREDIT, '');
+}
+
 async function mapItem(item, feed) {
   if (!item.enclosure?.url) {
     console.warn(`[rss] Episode "${item.title}" has no enclosure; player will be hidden.`);
@@ -48,7 +56,7 @@ async function mapItem(item, feed) {
     guid: item.guid,
     slug: toStableSlug(item.guid),
     title: item.title ?? '未命名單集',
-    descriptionHtml: item.content ?? '',
+    descriptionHtml: stripHostingCredit(item.content ?? ''),
     pubDate: new Date(item.pubDate ?? Date.now()),
     audioUrl: item.enclosure?.url ?? null,
     duration: item.duration ?? null,

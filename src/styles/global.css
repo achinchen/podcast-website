@@ -16,8 +16,8 @@
 }
 
 @layer components {
-  /* Editorial list-item pattern (used with divide-y on parent) */
-  .list-item {
+  /* Editorial entry pattern (used with divide-y on parent) */
+  .entry {
     @apply py-8;
   }
 

@@ -52,6 +52,11 @@ describe('getEpisodes (local fixture)', () => {
     // Real SoundOn feed uses <br /> tags in content:encoded
     expect(eps[0].descriptionHtml).toContain('<');
   });
+  it('strips the SoundOn "Hosting provided by" credit from show notes', async () => {
+    const eps = await getEpisodes();
+    expect(eps[0].descriptionHtml).not.toContain('Hosting provided by');
+    expect(eps[0].descriptionHtml).not.toContain('SoundOn</a>');
+  });
 });
 
 describe('getFeedMeta (local fixture)', () => {
