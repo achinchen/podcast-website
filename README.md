@@ -25,16 +25,8 @@ Without `PODCAST_RSS_URL` set, builds and tests use the local fixture
 - `PODCAST_RSS_URL` — same feed URL as above (used by both deploy and feed-check workflows)
 - `DISCORD_WEBHOOK` — optional failure notifications
 
-## GitHub Pages setup (one-time)
-
-1. Repo → Settings → Pages → Source: **GitHub Actions**
-2. Add a DNS CNAME record: `podcast.achin.me` → `achinchen.github.io`
 
 > **Important:** GitHub disables scheduled workflows after ~60 days of repository
 > inactivity. Re-enable via the Actions tab or push a commit periodically. The cron
 > drives episode updates — a disabled cron means the site stops updating.
 
-## Pending real-account values
-
-Placeholder values live in `src/config.js` (platform links, Instagram) and
-`public/robots.txt` (domain). Update them when the real accounts/domain are ready.
