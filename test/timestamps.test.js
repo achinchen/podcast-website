@@ -30,4 +30,16 @@ describe('transformTimestamps', () => {
     expect(transformTimestamps('')).toBe('');
     expect(transformTimestamps(null)).toBe('');
   });
+  it('drops SoundOn dead timestamp links entirely (href is not a real URL)', () => {
+    const out = transformTimestamps('<br /><a href="0">00:00</a> 開場白');
+    expect(out).toBe('<br /> 開場白');
+  });
+  it('drops SoundOn dead timestamp links regardless of href format', () => {
+    const out = transformTimestamps('<a href="04:20">04:20</a> 回頭才看懂的溫柔');
+    expect(out).toBe(' 回頭才看懂的溫柔');
+  });
+  it('still preserves a real link whose text is not purely a timestamp', () => {
+    const html = '<a href="/x">連結 03:30</a>';
+    expect(transformTimestamps(html)).toBe(html);
+  });
 });

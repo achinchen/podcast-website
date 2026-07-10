@@ -42,7 +42,7 @@ const jsonLd = JSON.stringify({
     <p class="text-sm font-medium text-muted-fg">{dateText}</p>
     <h1 class="mt-4 font-display text-3xl font-bold text-brand-ink">{ep.title}</h1>
     {ep.audioUrl && (
-      <div class="mt-4">
+      <div class="my-6">
         <audio id="main-audio-player" controls preload="metadata" src={ep.audioUrl}
           class="w-full">
           您的瀏覽器不支援音訊播放。
@@ -64,7 +64,7 @@ const jsonLd = JSON.stringify({
       <div class="mt-6"><PlatformBadges /></div>
       <p class="mt-6 text-muted-fg">
         有想說的話？歡迎到 
-        <a href={SITE.instagram} class="text-brand-blue underline hover:text-brand-blue-dark">Instagram</a>
+        <a href={SITE.instagram} class="inline px-1 text-brand-blue hover:text-brand-blue-dark">Instagram</a>
          私訊我 💬
       </p>
     </section>

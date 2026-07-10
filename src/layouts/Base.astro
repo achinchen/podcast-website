@@ -28,6 +28,10 @@ const ogImage = image && (image.startsWith('http') ? image : new URL(image, Astr
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     {ogImage && <meta property="og:image" content={ogImage} />}
     <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -38,19 +42,21 @@ const ogImage = image && (image.startsWith('http') ? image : new URL(image, Astr
     />
     <slot name="head" />
   </head>
-  <body class="min-h-screen bg-brand-cream font-body text-brand-ink">
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-brand-blue focus:px-4 focus:py-2 focus:text-brand-cream">
-      跳到主要內容
-    </a>
+  <body class={`min-h-screen font-body text-brand-ink ${chrome ? '' : 'bg-brand-cream'}`}>
     {chrome && (
-      <header class="sticky top-0 z-40 border-b border-border bg-brand-cream/90 backdrop-blur">
-        <div class="mx-auto flex max-w-3xl items-center justify-between px-4 py-6">
-          <a href="/" class="font-display text-2xl font-bold text-brand-blue">{SITE.name}</a>
-          <nav>
-            <a href="/episodes" class="font-medium text-brand-blue hover:text-brand-blue-dark">列表</a>
-          </nav>
-        </div>
-      </header>
+      <>
+        <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-brand-blue focus:px-4 focus:py-2 focus:text-brand-cream">
+          跳到主要內容
+        </a>
+        <header class="sticky top-0 z-40 border-b border-border backdrop-blur">
+          <div class="mx-auto flex max-w-3xl items-center justify-between px-4 py-6">
+            <a href="/" class="font-display text-2xl font-bold text-brand-blue">{SITE.name}</a>
+            <nav>
+              <a href="/episodes" class="font-medium text-brand-blue hover:text-brand-blue-dark">列表</a>
+            </nav>
+          </div>
+        </header>
+      </>
     )}
     <main id="main-content" class="mx-auto max-w-3xl px-4 pb-16">
       <slot />
@@ -67,7 +73,7 @@ const ogImage = image && (image.startsWith('http') ? image : new URL(image, Astr
         </div>
         <p class="mt-4 text-center text-sm">
           © {new Date().getFullYear()} {SITE.name} ·
-          <a href={SITE.instagram} class="text-brand-blue underline" target="_blank" rel="noopener">Instagram</a>
+          <a href={SITE.instagram} class="text-brand-blue" target="_blank" rel="noopener">Instagram</a>
         </p>
       </footer>
     )}

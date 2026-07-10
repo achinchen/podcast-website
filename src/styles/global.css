@@ -38,7 +38,7 @@
     @apply whitespace-pre-line;
   }
   .show-notes a {
-    @apply text-brand-blue underline hover:text-brand-blue-dark;
+    @apply text-brand-blue hover:text-brand-blue-dark;
   }
   .show-notes p { @apply my-4; }
 
