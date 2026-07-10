@@ -1,0 +1,36 @@
+---
+import appleLogo from '../assets/apple-podcast/logo.png';
+import spotifyLogo from '../assets/spotify/logo.png';
+
+interface Props {
+  platform: 'apple' | 'spotify';
+  href: string;
+  class?: string;
+}
+
+const { platform, href, class: className = '' } = Astro.props;
+
+const config = {
+  apple: {
+    label: '在 Apple Podcasts 收聽',
+    logo: appleLogo,
+  },
+  spotify: {
+    label: '在 Spotify 收聽',
+    logo: spotifyLogo,
+  },
+};
+
+const { label, logo } = config[platform];
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener"
+  aria-label={label}
+  class:list={['inline-flex items-center gap-2 rounded-lg bg-black px-3 py-2 text-white hover:bg-gray-800 transition-colors', className]}
+>
+  <img src={logo.src} alt="" class="h-6 w-6" />
+  <span class="text-sm font-medium">{label}</span>
+</a>
