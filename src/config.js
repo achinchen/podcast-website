@@ -7,5 +7,6 @@ export const SITE = {
   // Pending real show links — update these when the show is live on each platform:
   applePodcasts: 'https://podcasts.apple.com/tw/podcast/a-chin-logs',
   spotify: 'https://open.spotify.com/show/a-chin-logs',
+  soundon: '', // Extracted from RSS feed at build time if empty
   instagram: 'https://www.instagram.com/a.chin.logs/',
 };

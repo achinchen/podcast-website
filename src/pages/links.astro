@@ -1,0 +1,43 @@
+---
+import Base from '../layouts/Base.astro';
+import { getFeedMeta } from '../utils/rss.js';
+import { SITE } from '../config.js';
+
+const meta = await getFeedMeta();
+const soundonUrl = SITE.soundon || meta.link;
+const cover = meta.cover;
+
+const links = [
+  { label: '在 Apple Podcasts 收聽', href: SITE.applePodcasts, icon: '🎧' },
+  { label: '在 Spotify 收聽', href: SITE.spotify, icon: '🎵' },
+  { label: '在 SoundOn 收聽', href: soundonUrl, icon: '🎙️' },
+  { label: '追蹤 Instagram', href: SITE.instagram, icon: '📷' },
+];
+---
+<Base title={`${SITE.name} | Links`} description={SITE.tagline} image={cover}>
+  <div class="mx-auto max-w-sm py-12 text-center">
+    {cover && (
+      <img
+        src={cover}
+        alt={`${SITE.name} 封面`}
+        width="128"
+        height="128"
+        class="mx-auto w-32 rounded-2xl"
+      />
+    )}
+    <h1 class="mt-6 font-display text-3xl font-bold text-brand-blue">{SITE.name}</h1>
+    <p class="mt-2 text-brand-ink">{SITE.tagline}</p>
+    <nav class="mt-8 flex flex-col gap-4">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          class="badge-pill w-full justify-center text-center"
+          rel="noopener"
+        >
+          <span class="mr-2">{link.icon}</span>
+          {link.label}
+        </a>
+      ))}
+    </nav>
+  </div>
+</Base>
