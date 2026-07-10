@@ -62,3 +62,11 @@ describe('getFeedMeta (local fixture)', () => {
     expect(meta.cover).toBe('https://files.soundon.fm/1783316066645-64c98447-27d4-4ddc-b7dd-161da54c3279.jpeg');
   });
 });
+
+describe('transcript loading', () => {
+  it('episode object includes transcript field', async () => {
+    const eps = await getEpisodes();
+    // Before transcript file exists, transcript should be null
+    expect(eps[0]).toHaveProperty('transcript');
+  });
+});
