@@ -39,13 +39,15 @@ const jsonLd = JSON.stringify({
 <Base title={`${ep.title}｜${SITE.name}`} description={description} image={ep.cover} type="article">
   <script type="application/ld+json" set:html={jsonLd} slot="head" />
   <article>
-    <p class="text-sm">{dateText}</p>
-    <h1 class="mt-2 font-display text-3xl font-bold text-brand-blue">{ep.title}</h1>
+    <p class="text-sm font-medium text-muted-fg">{dateText}</p>
+    <h1 class="mt-2 font-display text-3xl font-bold text-brand-blue sm:text-4xl">{ep.title}</h1>
     {ep.audioUrl && (
-      <audio id="main-audio-player" controls preload="metadata" src={ep.audioUrl}
-        class="mt-6 w-full">
-        您的瀏覽器不支援音訊播放。
-      </audio>
+      <div class="card mt-6 p-4">
+        <audio id="main-audio-player" controls preload="metadata" src={ep.audioUrl}
+          class="w-full">
+          您的瀏覽器不支援音訊播放。
+        </audio>
+      </div>
     )}
     <div class="show-notes mt-8" set:html={notesHtml} />
 
@@ -56,13 +58,13 @@ const jsonLd = JSON.stringify({
       </details>
     )}
 
-    <hr class="my-10 border-brand-blue-tint" />
-    <section class="rounded-2xl bg-brand-blue-tint p-6">
+    <hr class="my-10 border-border" />
+    <section class="card">
       <h2 class="font-display text-xl font-bold text-brand-blue">在其他平台收聽</h2>
       <div class="mt-4"><PlatformBadges /></div>
-      <p class="mt-4 text-sm">
+      <p class="mt-4 text-sm text-muted-fg">
         有想說的話？歡迎到
-        <a href={SITE.instagram} class="text-brand-blue underline">Instagram</a>
+        <a href={SITE.instagram} class="text-brand-blue underline hover:text-brand-blue-dark">Instagram</a>
         私訊我 💬
       </p>
     </section>
