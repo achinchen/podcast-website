@@ -11,11 +11,11 @@ export async function getStaticPaths({ paginate }) {
 const { page } = Astro.props;
 ---
 <Base title={`全部（第 ${page.currentPage} 頁）｜${SITE.name}`}>
-  <h1 class="mt-8 font-display text-3xl font-bold text-brand-blue sm:text-4xl">全部</h1>
-  <div class="mt-8 grid gap-6 sm:grid-cols-2">
+  <h1 class="mt-12 font-display text-4xl font-bold text-brand-ink sm:text-5xl">全部</h1>
+  <div class="mt-10 divide-y divide-border">
     {page.data.map((ep) => <EpisodeCard episode={ep} />)}
   </div>
-  <nav class="mt-10 flex items-center justify-between" aria-label="分頁">
+  <nav class="mt-12 flex items-center justify-between" aria-label="分頁">
     {page.url.prev
       ? <a href={page.url.prev} class="badge-pill">← 較新</a>
       : <span class="badge-pill pointer-events-none opacity-40" aria-disabled="true">← 較新</span>}
