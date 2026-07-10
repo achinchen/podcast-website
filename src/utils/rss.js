@@ -26,7 +26,7 @@ function mapItem(item, feed) {
   return {
     guid: item.guid,
     slug: toStableSlug(item.guid),
-    title: item.title ?? '未命名',
+    title: item.title ?? '未命名單集',
     descriptionHtml: item.content ?? '',
     pubDate: new Date(item.pubDate ?? Date.now()),
     audioUrl: item.enclosure?.url ?? null,
@@ -39,6 +39,7 @@ async function getFeed(rssUrl = process.env.PODCAST_RSS_URL) {
   return rssUrl
     ? await parser.parseURL(rssUrl)
     : await parser.parseString(
+        // process.cwd() ensures fixture resolution works from any test working directory
         await readFile(resolve(process.cwd(), 'src/data/sample-feed.xml'), 'utf8'),
       );
 }
