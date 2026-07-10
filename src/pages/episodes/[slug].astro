@@ -40,16 +40,16 @@ const jsonLd = JSON.stringify({
   <script type="application/ld+json" set:html={jsonLd} slot="head" />
   <article>
     <p class="text-sm font-medium text-muted-fg">{dateText}</p>
-    <h1 class="mt-2 font-display text-3xl font-bold text-brand-blue sm:text-4xl">{ep.title}</h1>
+    <h1 class="mt-3 font-display text-4xl font-bold text-brand-ink sm:text-5xl">{ep.title}</h1>
     {ep.audioUrl && (
-      <div class="card mt-6 p-4">
+      <div class="mt-8">
         <audio id="main-audio-player" controls preload="metadata" src={ep.audioUrl}
           class="w-full">
           您的瀏覽器不支援音訊播放。
         </audio>
       </div>
     )}
-    <div class="show-notes mt-8" set:html={notesHtml} />
+    <div class="show-notes mt-10 text-lg" set:html={notesHtml} />
 
     {ep.transcript && (
       <details class="transcript-section">
@@ -58,11 +58,11 @@ const jsonLd = JSON.stringify({
       </details>
     )}
 
-    <hr class="my-10 border-border" />
-    <section class="card">
-      <h2 class="font-display text-xl font-bold text-brand-blue">在其他平台收聽</h2>
-      <div class="mt-4"><PlatformBadges /></div>
-      <p class="mt-4 text-sm text-muted-fg">
+    <hr class="my-16 border-border" />
+    <section>
+      <h2 class="font-display text-2xl font-bold text-brand-ink sm:text-3xl">在其他平台收聽</h2>
+      <div class="mt-6"><PlatformBadges /></div>
+      <p class="mt-6 text-muted-fg">
         有想說的話？歡迎到 
         <a href={SITE.instagram} class="text-brand-blue underline hover:text-brand-blue-dark">Instagram</a>
          私訊我 💬
