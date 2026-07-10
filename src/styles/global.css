@@ -46,20 +46,24 @@
   }
   .show-notes p { @apply my-4; }
 
-  /* Transcript section */
+  /* Transcript section - modern minimal style */
   .transcript-section {
-    @apply mt-8 rounded-2xl border border-brand-blue-tint;
+    @apply mt-8;
   }
   .transcript-section summary {
-    @apply cursor-pointer rounded-t-2xl px-6 py-4 font-display text-lg font-bold text-brand-blue
-      transition-colors duration-200 hover:bg-brand-blue-tint
+    @apply cursor-pointer py-3 font-display text-base font-semibold text-brand-blue
+      transition-colors duration-200 hover:text-brand-blue-dark
       focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring
-      focus-visible:ring-inset;
+      focus-visible:ring-offset-2;
   }
-  .transcript-section summary::-webkit-details-marker {
+  .transcript-section summary::-webkit-details-marker,
+  .transcript-section summary::marker {
     @apply text-brand-blue;
   }
+  .transcript-section[open] summary {
+    @apply mb-4;
+  }
   .transcript-content {
-    @apply whitespace-pre-line border-t border-brand-blue-tint px-6 py-4 text-sm leading-relaxed;
+    @apply whitespace-pre-line rounded-2xl border border-border bg-surface p-6 text-sm leading-relaxed shadow-sm;
   }
 }
