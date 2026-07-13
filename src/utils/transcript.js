@@ -68,3 +68,34 @@ export function parseInline(content) {
   if (tail) segments.push({ startSeconds: currentSeconds, text: tail });
   return segments;
 }
+
+/** Render grouped paragraphs with the same markup srtToHtml emits. */
+function paragraphsToHtml(paragraphs) {
+  return paragraphs
+    .map((p) => {
+      const btn = `<button type="button" class="timestamp-link mr-2" data-time="${p.startTime}">${p.startTime}</button>`;
+      return `<p class="my-3">${btn}${p.texts.join(' ')}</p>`;
+    })
+    .join('\n');
+}
+
+/** Plain-text fallback: single paragraph, newlines become <br>. */
+function plainToHtml(content) {
+  return `<p>${content.replace(/\n/g, '<br>')}</p>`;
+}
+
+/**
+ * Render any supported transcript format to HTML.
+ * Detection order: SRT → inline [HH:MM:SS] → plain text.
+ * @param {string|null|undefined} content
+ * @returns {string|null} HTML, or null when there is nothing to render
+ */
+export function transcriptToHtml(content) {
+  if (!content || typeof content !== 'string') return null;
+  if (isSRT(content)) return srtToHtml(content);
+  if (isInlineTimestamped(content)) {
+    const paragraphs = groupIntoParagraphs(parseInline(content));
+    if (paragraphs.length) return paragraphsToHtml(paragraphs);
+  }
+  return plainToHtml(content);
+}

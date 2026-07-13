@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { isInlineTimestamped, parseInline } from '../src/utils/transcript.js';
+import { isInlineTimestamped, parseInline, transcriptToHtml } from '../src/utils/transcript.js';
 
 // Mirrors src/transcripts/text.md: leading heading, markers mid-sentence,
 // blank lines between paragraphs.
@@ -57,5 +57,51 @@ describe('parseInline', () => {
   });
   it('returns [] for empty input', () => {
     expect(parseInline('')).toEqual([]);
+  });
+});
+
+const SRT = `1
+00:00:03,547 --> 00:00:06,770
+歡迎收聽 a.chin.logs
+
+2
+00:00:07,000 --> 00:00:09,500
+今天聊聊告別`;
+
+describe('transcriptToHtml', () => {
+  it('returns null for empty or non-string input', () => {
+    expect(transcriptToHtml(null)).toBe(null);
+    expect(transcriptToHtml('')).toBe(null);
+    expect(transcriptToHtml(undefined)).toBe(null);
+  });
+
+  it('dispatches SRT content to SRT rendering', () => {
+    const html = transcriptToHtml(SRT);
+    expect(html).toContain('class="timestamp-link mr-2"');
+    expect(html).toContain('data-time="0:03"');
+    expect(html).toContain('歡迎收聽 a.chin.logs');
+  });
+
+  it('renders inline format with clickable, paragraph-grouped timestamps', () => {
+    const html = transcriptToHtml(INLINE);
+    // Segments at 0/10/20s group into one 0:00 paragraph; 60s starts a new one.
+    expect(html).toContain('data-time="0:00"');
+    expect(html).toContain('data-time="1:00"');
+    expect(html).not.toContain('data-time="0:10"');
+    expect(html).toContain('<p class="my-3">');
+    // Bracket markers must not leak into the rendered text.
+    expect(html).not.toContain('[00:00:10]');
+    // Heading is stripped (the phrase itself legitimately appears in body
+    // prose, so assert on the '#'-prefixed heading line only).
+    expect(html).not.toContain('# 向生活下戰帖');
+  });
+
+  it('renders plain text as a paragraph with <br> line breaks', () => {
+    expect(transcriptToHtml('hello\nworld')).toBe('<p>hello<br>world</p>');
+  });
+
+  it('treats sparse-bracket text as plain text', () => {
+    const html = transcriptToHtml('note [00:10] once');
+    expect(html).toBe('<p>note [00:10] once</p>');
   });
 });
