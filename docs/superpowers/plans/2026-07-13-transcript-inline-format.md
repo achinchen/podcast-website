@@ -245,8 +245,9 @@ describe('transcriptToHtml', () => {
     expect(html).toContain('<p class="my-3">');
     // Bracket markers must not leak into the rendered text.
     expect(html).not.toContain('[00:00:10]');
-    // Heading is stripped.
-    expect(html).not.toContain('向生活下戰帖');
+    // Heading is stripped (the phrase itself legitimately appears in body
+    // prose, so assert on the '#'-prefixed heading line only).
+    expect(html).not.toContain('# 向生活下戰帖');
   });
 
   it('renders plain text as a paragraph with <br> line breaks', () => {
