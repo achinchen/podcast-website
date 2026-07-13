@@ -320,10 +320,14 @@ git commit -m "feat(transcript): unified transcriptToHtml with format detection"
 
 **Files:**
 - Modify: `src/pages/episodes/[slug].astro:7,19-22`
+- Modify: `test/rss.test.js:78-83`
+- Commit (content provided by user, do not edit): `src/transcripts/8ad0e2df-2d31-4087-9570-8da4a1ce488b.md` (now inline format), `src/transcripts/text1.md` (the old SRT, kept for reference)
 
 **Interfaces:**
 - Consumes: `transcriptToHtml(content) -> string|null` from `src/utils/transcript.js` (Task 2).
 - Produces: episode pages render every transcript format; no other consumers.
+
+**Context:** The user replaced EP1's transcript file (`src/transcripts/8ad0e2df-2d31-4087-9570-8da4a1ce488b.md`) with inline-format content titled `# 向生活下戰帖`, and saved the original SRT to `src/transcripts/text1.md`. These working-tree changes are intentional — commit them as-is, never modify their content. This breaks the old test assertion, fixed in Step 2 below.
 
 - [ ] **Step 1: Update the episode page**
 
@@ -358,12 +362,36 @@ const transcriptHtml = transcriptToHtml(ep.transcript);
 
 (The `{ep.transcript && (...)}` guard around the `<details>` section stays as-is.)
 
-- [ ] **Step 2: Run the full test suite**
+- [ ] **Step 2: Update the stale transcript-loading assertion**
+
+In `test/rss.test.js`, replace the second test in `describe('transcript loading', ...)`:
+
+```js
+  it('loads transcript from local file when present', async () => {
+    const eps = await getEpisodes();
+    // EP1 has a transcript file at src/transcripts/{guid}.md (SRT format)
+    const ep1 = eps.find((e) => e.title.includes('EP1'));
+    expect(ep1.transcript).toContain('a.chin.logs');
+  });
+```
+
+with:
+
+```js
+  it('loads transcript from local file when present', async () => {
+    const eps = await getEpisodes();
+    // EP1 has a transcript file at src/transcripts/{guid}.md (inline-timestamp format)
+    const ep1 = eps.find((e) => e.title.includes('EP1'));
+    expect(ep1.transcript).toContain('向生活下戰帖');
+  });
+```
+
+- [ ] **Step 3: Run the full test suite**
 
 Run: `npm test`
-Expected: PASS — all files including `test/rss.test.js` (EP1's SRT transcript still loads) and `test/transcript.test.js`.
+Expected: PASS — all files including `test/rss.test.js` and `test/transcript.test.js`.
 
-- [ ] **Step 3: Verify the static build**
+- [ ] **Step 4: Verify the static build**
 
 Run: `npm run build`
 Expected: build completes; EP1's page still contains the transcript section. Verify:
@@ -374,14 +402,14 @@ grep -c 'timestamp-link' dist/episodes/*/index.html
 
 Expected: a non-zero count for EP1's page.
 
-- [ ] **Step 4: Manual browser check (optional but recommended)**
+- [ ] **Step 5: Manual browser check (optional but recommended)**
 
 Start the dev server per AGENTS.md (`astro dev --background`), open EP1's episode page, expand 逐字稿 Transcript, click a timestamp button, and confirm the audio player seeks. Stop with `astro dev stop`.
 
-- [ ] **Step 5: Commit**
+- [ ] **Step 6: Commit**
 
 ```bash
-git add src/pages/episodes/[slug].astro
+git add src/pages/episodes/[slug].astro test/rss.test.js src/transcripts/8ad0e2df-2d31-4087-9570-8da4a1ce488b.md src/transcripts/text1.md
 git commit -m "feat: render all transcript formats via transcriptToHtml on episode pages"
 ```
 
