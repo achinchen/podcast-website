@@ -72,13 +72,15 @@ emits today:
 <p class="my-3"><button type="button" class="timestamp-link mr-2" data-time="M:SS">M:SS</button>text…</p>
 ```
 
-`data-time` uses the same `formatTime()` output (`M:SS` / `H:MM:SS`), which
-`timestamp-player.js#toSeconds` already parses.
+`data-time` uses the same `M:SS` / `H:MM:SS` format as SRT rendering (via
+`groupIntoParagraphs()`'s `startTime`), which `timestamp-player.js#toSeconds`
+already parses.
 
 ### Changes to existing files
 
-- `src/utils/srt.js` — export `formatTime()` (currently private) so `transcript.js`
-  renders identical timestamps. No behavior change.
+- `src/utils/srt.js` — no changes. `transcript.js` reuses the already-exported
+  `isSRT()`, `srtToHtml()`, and `groupIntoParagraphs()` (whose paragraphs include a
+  pre-formatted `startTime`, so no extra export is needed).
 - `src/pages/episodes/[slug].astro` — replace the inline
   `isSRT(ep.transcript) ? srtToHtml(...) : ep.transcript` branch with a single
   `transcriptToHtml(ep.transcript)` call.
