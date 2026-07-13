@@ -4,7 +4,7 @@ import PlatformBadges from '../../components/PlatformBadges.astro';
 import { getEpisodes } from '../../utils/rss.js';
 import { transformTimestamps } from '../../utils/timestamps.js';
 import { excerpt } from '../../utils/text.js';
-import { isSRT, srtToHtml } from '../../utils/srt.js';
+import { transcriptToHtml } from '../../utils/transcript.js';
 import { SITE } from '../../config.js';
 
 export async function getStaticPaths() {
@@ -16,10 +16,9 @@ const { ep } = Astro.props;
 const notesHtml = transformTimestamps(ep.descriptionHtml);
 const description = excerpt(ep.descriptionHtml, 150);
 
-// Transform transcript: SRT gets clickable timestamps, plain text stays as-is
-const transcriptHtml = ep.transcript && isSRT(ep.transcript)
-  ? srtToHtml(ep.transcript)
-  : ep.transcript;
+// Transform transcript: SRT and inline-timestamp formats get clickable
+// timestamps; anything else renders as plain text.
+const transcriptHtml = transcriptToHtml(ep.transcript);
 const dateText = ep.pubDate.toLocaleDateString('US', {
   year: 'numeric', month: 'long', day: 'numeric',
 });

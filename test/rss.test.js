@@ -77,8 +77,8 @@ describe('transcript loading', () => {
 
   it('loads transcript from local file when present', async () => {
     const eps = await getEpisodes();
-    // EP1 has a transcript file at src/transcripts/{guid}.md (SRT format)
+    // EP1 has a transcript file at src/transcripts/{guid}.md (inline-timestamp format)
     const ep1 = eps.find((e) => e.title.includes('EP1'));
-    expect(ep1.transcript).toContain('a.chin.logs');
+    expect(ep1.transcript).toContain('向生活下戰帖');
   });
 });
