@@ -24,8 +24,8 @@ describe('getEpisodes (local fixture)', () => {
   it('parses episodes sorted newest-first', async () => {
     const eps = await getEpisodes();
     expect(eps.length).toBeGreaterThanOrEqual(1);
-    // First episode is EP1
-    expect(eps[0].title).toContain('EP1');
+    // EP2 (pubDate 2026-07-24) is newer than EP1 (pubDate 2026-07-10)
+    expect(eps[0].title).toContain('EP2');
   });
   it('derives slug from guid, not title', async () => {
     const eps = await getEpisodes();
@@ -75,10 +75,17 @@ describe('transcript loading', () => {
     expect(eps[0]).toHaveProperty('transcript');
   });
 
-  it('loads transcript from local file when present', async () => {
+  it('loads transcript from local file when present (SRT format)', async () => {
     const eps = await getEpisodes();
-    // EP1 has a transcript file at src/transcripts/{guid}.md (inline-timestamp format)
+    // EP1 has a transcript file at src/transcripts/{guid}.md (SRT format)
     const ep1 = eps.find((e) => e.title.includes('EP1'));
-    expect(ep1.transcript).toContain('向生活下戰帖');
+    expect(ep1.transcript).toContain('a.chin.logs');
+  });
+
+  it('loads transcript from local file when present (inline-timestamp format)', async () => {
+    const eps = await getEpisodes();
+    // EP2 has a transcript file at src/transcripts/{guid}.md (inline-timestamp format)
+    const ep2 = eps.find((e) => e.title.includes('向生活下戰帖'));
+    expect(ep2.transcript).toContain('向生活下戰帖');
   });
 });
